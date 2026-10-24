@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "soplos-grub-editor",
+  "version": "3.0.0-alpha",
+  "identifier": "org.soplos.grubeditor",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1426",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Soplos GRUB Editor",
+        "width": 1000,
+        "height": 700,
+        "minWidth": 860,
+        "minHeight": 560,
+        "resizable": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb"],
+    "publisher": "Sergi Perich",
+    "homepage": "https://soplos.org",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "GPL-3.0-or-later",
+    "licenseFile": "../LICENSE",
+    "category": "Utility",
+    "shortDescription": "Graphical editor for the GRUB boot loader of Soplos Linux",
+    "longDescription": "Configure the GRUB2 boot loader of Soplos Linux: default entry and timeout, kernel parameters, custom boot entries, themes, backgrounds, colors and fonts.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png"
+    ],
+    "linux": {
+      "deb": {
+        "section": "admin",
+        "priority": "optional",
+        "depends": ["pkexec", "grub-common | grub2-common", "tar", "unzip"],
+        "recommends": ["os-prober"],
+        "changelog": "../CHANGELOG.md",
+        "desktopTemplate": "resources/debian/soplos-grub-editor.desktop.hbs",
+        "files": {
+          "/usr/share/metainfo/org.soplos.grubeditor.metainfo.xml": "resources/appstream/org.soplos.grubeditor.metainfo.xml",
+          "/usr/share/doc/soplos-grub-editor/copyright": "resources/debian/copyright",
+          "/usr/share/polkit-1/actions/org.soplos.grubeditor.policy": "resources/polkit/org.soplos.grubeditor.policy",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot01.png": "resources/screenshots/screenshot01.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot02.png": "resources/screenshots/screenshot02.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot03.png": "resources/screenshots/screenshot03.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot04.png": "resources/screenshots/screenshot04.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot05.png": "resources/screenshots/screenshot05.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot06.png": "resources/screenshots/screenshot06.png",
+          "/usr/share/doc/soplos-grub-editor/screenshots/screenshot07.png": "resources/screenshots/screenshot07.png",
+          "/usr/share/man/man1/soplos-grub-editor.1.gz": "resources/docs/soplos-grub-editor.1.gz"
+        }
+      }
+    }
+  }
+}

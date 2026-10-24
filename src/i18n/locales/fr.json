@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Éditeur GRUB Soplos",
+    "tabs": {
+      "general": {
+        "label": "Général",
+        "title": "Paramètres généraux",
+        "description": "Entrée de démarrage par défaut, délai, résolution et paramètres du noyau."
+      },
+      "entries": {
+        "label": "Entrées de démarrage",
+        "title": "Entrées de démarrage",
+        "description": "Les entrées du menu de démarrage : activez ou désactivez celles qui sont modifiables, ajoutez les vôtres ou supprimez-les."
+      },
+      "appearance": {
+        "label": "Apparence",
+        "title": "Apparence",
+        "description": "Thèmes, fond, couleurs et polices du menu de démarrage."
+      }
+    }
+  },
+  "common": {
+    "apply": "Appliquer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "done": "Terminé",
+    "error": "Erreur",
+    "ok": "OK",
+    "remove": "Supprimer",
+    "save": "Enregistrer"
+  },
+  "shell": {
+    "notes": "Annotations"
+  },
+  "sidebar": {
+    "language": "Langue",
+    "switchToLight": "Passer au thème clair",
+    "switchToDark": "Passer au thème sombre",
+    "aboutTooltip": "À propos de l'éditeur GRUB Soplos"
+  },
+  "about": {
+    "version": "Version {version}",
+    "tagline": "Éditeur graphique du chargeur de démarrage GRUB de Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "Licence GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "Ce système ne démarre pas avec GRUB",
+    "body": "Le fichier /etc/default/grub ou la commande update-grub est introuvable, il n'y a donc rien à modifier ici. Rien n'a été changé."
+  },
+  "backup": {
+    "title": "Enregistrer d'abord une copie ?",
+    "body": "Avant la première modification, vous pouvez enregistrer une copie de /etc/default/grub où vous voulez. La question ne sera pas reposée avant le redémarrage du programme.",
+    "save": "Enregistrer une copie...",
+    "saving": "Enregistrement...",
+    "continueWithout": "Continuer sans copie",
+    "saveTitle": "Enregistrer une copie des réglages de GRUB"
+  },
+  "flow": {
+    "failed": "La modification n'a pas été faite. Rien n'est resté à moitié écrit.",
+    "runUpdate": "Exécuter update-grub maintenant pour que la modification prenne effet ?",
+    "runUpdateNow": "Exécuter update-grub",
+    "updated": "GRUB a été mis à jour. La modification sera là au prochain démarrage.",
+    "updateFailed": "update-grub a échoué. Les réglages ont été enregistrés, mais le menu de démarrage n'a pas été régénéré."
+  },
+  "general": {
+    "bootConfig": "Démarrage",
+    "bootConfigSub": "Ce qui démarre par défaut et combien de temps le menu attend.",
+    "bootMode": "Mode de démarrage par défaut",
+    "modeFixed": "Entrée fixe",
+    "modeLastInstalled": "Dernier noyau installé",
+    "modeLastBooted": "Dernier noyau démarré",
+    "modeFixedText": "Démarre toujours l'entrée choisie ci-dessous.",
+    "modeLastInstalledText": "Démarre la première entrée du menu, normalement le noyau le plus récent.",
+    "modeLastBootedText": "Démarre ce que vous avez démarré la dernière fois.",
+    "bootEntry": "Entrée de démarrage par défaut",
+    "timeout": "Délai (secondes)",
+    "resolution": "Résolution de l'écran",
+    "resolutionAuto": "automatique",
+    "advanced": "Options avancées",
+    "advancedSub": "Ce que le menu détecte et affiche.",
+    "detectOs": "Détecter les autres systèmes d'exploitation",
+    "showMenu": "Afficher le menu de démarrage",
+    "menuNeedsTimeout": "Le menu ne peut pas être affiché avec un délai de 0",
+    "recovery": "Inclure les entrées de récupération",
+    "uuid": "Utiliser l'UUID de la partition racine",
+    "disableSubmenu": "Désactiver les sous-menus",
+    "kernelParams": "Paramètres du noyau",
+    "kernelParamsSub": "Options transmises au noyau à chaque démarrage.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Appliquer les modifications",
+    "applying": "Application...",
+    "saved": "Modifications enregistrées"
+  },
+  "entries": {
+    "colName": "Nom",
+    "colType": "Type",
+    "colPath": "Chemin",
+    "colEnabled": "Activée",
+    "kind": {
+      "system": "système",
+      "recovery": "récupération",
+      "memtest": "memtest",
+      "firmware": "firmware"
+    },
+    "loading": "Lecture des entrées de démarrage...",
+    "empty": "Il n'y a aucune entrée de démarrage à afficher.",
+    "unreadable": "Sur ce système, le menu de démarrage (grub.cfg) ne peut être lu qu'avec les droits d'administrateur.",
+    "read": "Lire les entrées de démarrage",
+    "reading": "Lecture...",
+    "add": "Ajouter une entrée",
+    "addTitle": "Ajouter une entrée de démarrage",
+    "addHint": "Écrivez le bloc menuentry de GRUB. Il est ajouté à /etc/grub.d/40_custom une fois vérifié par GRUB.",
+    "added": "Entrée ajoutée",
+    "remove": "Supprimer l'entrée",
+    "removeTitle": "Supprimer l'entrée",
+    "removeMemtest": "Supprimer {name} de /boot ? Cela supprime aussi sa variante pour console série, car les deux utilisent le même fichier.",
+    "removeCustom": "Supprimer {name} de /etc/grub.d/40_custom ? Cette action est irréversible.",
+    "removed": "Entrée supprimée",
+    "updated": "Entrée mise à jour",
+    "notSupportedTitle": "Non pris en charge",
+    "notSupported": "Cette entrée appartient à un noyau ou à un système d'exploitation installé. GRUB la génère à partir de ce qui est installé sur le disque, elle ne peut donc pas être désactivée ni supprimée une par une ici : il faudrait désinstaller le noyau ou le système d'exploitation lui-même."
+  },
+  "appearance": {
+    "inUse": "Utilisé",
+    "sampleTitle": "Voici l'aspect du menu",
+    "sampleAdvanced": "Options avancées",
+    "sampleMemtest": "Test de la mémoire",
+    "convertTitle": "Convertir une police",
+    "emptyThemesBody": "Installez un thème depuis une archive (.zip, .tar.gz...) et il apparaîtra ici.",
+    "tabTheme": "Thème",
+    "tabBackground": "Fond",
+    "tabFonts": "Polices",
+    "themeInfo": "Un thème inclut ses propres couleurs et polices. Pour votre propre image et vos couleurs, utilisez l'onglet Fond.",
+    "emptyThemesTitle": "Aucun thème installé",
+    "install": "Installer...",
+    "disable": "Désactiver",
+    "selectArchive": "Sélectionnez une archive de thème",
+    "archives": "Archives de thème",
+    "installed": "Thème {name} installé.",
+    "installFailed": "Le thème n'a pas pu être installé.",
+    "applyThemeTitle": "Appliquer le thème",
+    "applyThemeBody": "Appliquer {name} désactive tout fond et toutes couleurs personnalisés. Continuer ?",
+    "themeApplied": "Thème appliqué",
+    "disableThemeTitle": "Désactiver le thème",
+    "disableThemeBody": "Cela retire le thème et revient aux couleurs simples. Continuer ?",
+    "themeDisabled": "Thème désactivé",
+    "removeThemeTitle": "Supprimer le thème",
+    "removeThemeBody": "Cela supprime définitivement le thème {name}. Êtes-vous sûr ?",
+    "themeRemoved": "Thème supprimé",
+    "removeFailed": "La suppression a échoué.",
+    "backgroundImage": "Image de fond",
+    "noImage": "Aucune image sélectionnée",
+    "browse": "Parcourir...",
+    "selectImage": "Sélectionnez une image de fond",
+    "images": "Images",
+    "colorsInfo": "Couleurs, quand aucun thème n'est utilisé.",
+    "textColor": "Couleur du texte",
+    "backgroundColor": "Couleur du fond",
+    "highlightText": "Texte en surbrillance",
+    "highlightBackground": "Fond de la surbrillance",
+    "applyLook": "Appliquer l'apparence",
+    "applyLookTitle": "Appliquer l'apparence",
+    "applyLookBody": "Cela désactive tout thème et utilise votre fond et vos couleurs. Continuer ?",
+    "lookApplied": "Apparence appliquée",
+    "removeBackgroundTitle": "Supprimer le fond",
+    "removeBackgroundBody": "Cela retire l'image de fond de GRUB. Les couleurs restent. Continuer ?",
+    "convertInfo": "Convertit une police TrueType ou OpenType au format de GRUB (PF2).",
+    "fontPlaceholder": "Sélectionnez un fichier de police...",
+    "selectFont": "Sélectionnez un fichier de police",
+    "fontFiles": "Fichiers de police",
+    "fontSize": "Taille de la police",
+    "convert": "Convertir et installer",
+    "noFont": "Sélectionnez d'abord un fichier de police.",
+    "convertFailed": "La police n'a pas pu être convertie.",
+    "converted": "Police {name} installée.",
+    "installedFonts": "Polices GRUB installées",
+    "noFonts": "Aucune police installée",
+    "applyFont": "Utiliser cette police",
+    "removeFont": "Supprimer cette police",
+    "fontApplied": "Police appliquée",
+    "removeFontTitle": "Supprimer la police",
+    "removeFontBody": "Cela supprime définitivement la police {name}. Êtes-vous sûr ?",
+    "fontRemoved": "Police supprimée"
+  },
+  "colors": {
+    "black": "Noir",
+    "blue": "Bleu",
+    "green": "Vert",
+    "cyan": "Cyan",
+    "red": "Rouge",
+    "magenta": "Magenta",
+    "brown": "Marron",
+    "light-gray": "Gris clair",
+    "dark-gray": "Gris foncé",
+    "light-blue": "Bleu clair",
+    "light-green": "Vert clair",
+    "light-cyan": "Cyan clair",
+    "light-red": "Rouge clair",
+    "light-magenta": "Magenta clair",
+    "yellow": "Jaune",
+    "white": "Blanc"
+  },
+  "hints": {
+    "bootMode": "Entrée fixe démarre toujours la même entrée. Dernier noyau installé démarre la première entrée du menu. Dernier noyau démarré lance ce qui a été lancé la dernière fois.",
+    "bootEntry": "Utilisée seulement avec une entrée fixe. Dans les deux autres modes, GRUB choisit lui-même.",
+    "timeout": "Secondes d'attente du menu avant de démarrer l'entrée par défaut. Avec 0, elle démarre aussitôt.",
+    "resolution": "Résolution du menu de démarrage. Automatique laisse GRUB choisir celle de votre écran.",
+    "detectOs": "Cherche d'autres systèmes d'exploitation sur vos disques et les ajoute au menu. Nécessite le paquet os-prober.",
+    "showMenu": "Désactivé, le menu reste caché et l'entrée par défaut démarre, sauf si vous maintenez la touche Maj.",
+    "recovery": "Ajoute une entrée en mode récupération pour chaque noyau, afin de réparer le système quand il ne démarre pas.",
+    "uuid": "Identifie la partition racine par son UUID plutôt que par le nom du périphérique, qui peut changer quand on ajoute des disques.",
+    "submenu": "Sans sous-menus, chaque noyau apparaît dans le menu principal au lieu d'être dans Options avancées.",
+    "kernelParams": "Séparés par des espaces. Quiet et splash masquent les messages de démarrage. Modifiez-les avec prudence : une mauvaise option peut empêcher le système de démarrer.",
+    "entriesIntro": "Chaque ligne est une entrée du menu de démarrage. L'interrupteur désactive ou active une entrée sans la supprimer.",
+    "entriesToggle": "Seules memtest et vos propres entrées sont modifiables. Les entrées de noyau suivent ce qui est installé. Les modifications arrivent dans le menu quand update-grub s'exécute.",
+    "themeChoice": "Installez un thème depuis une archive, choisissez-le et appuyez sur Appliquer. Désactiver revient aux couleurs simples.",
+    "backgroundImage": "Une image PNG ou JPEG. Elle apparaît derrière le menu quand aucun thème n'est appliqué.",
+    "colors": "GRUB ne peut afficher que seize couleurs, le choix est donc limité à celles-ci.",
+    "fontConvert": "GRUB ne sait pas lire les polices normales. Ceci convertit un fichier TTF ou OTF et le conserve dans /boot/grub/fonts.",
+    "fontApply": "Utiliser cette police la définit pour le menu. Supprimer une police utilisée efface aussi le réglage."
+  },
+  "notes": {
+    "whatTitle": "Ce que cela fait",
+    "careTitle": "À garder en tête",
+    "filesTitle": "Fichiers concernés",
+    "general": {
+      "what": "Définit le comportement du menu de démarrage : quelle entrée démarre par défaut, combien de temps le menu attend, la résolution de l'écran, ce qu'il détecte et les paramètres transmis au noyau.",
+      "care": "L'entrée par défaut n'est écrite que lorsque vous la choisissez, donc ouvrir cette page et appliquer ne fixe jamais le démarrage sur le noyau actuel. Un mauvais paramètre du noyau peut empêcher le système de démarrer."
+    },
+    "entries": {
+      "what": "Liste les entrées du menu de démarrage. Les entrées memtest et celles que vous ajoutez peuvent être désactivées, activées ou supprimées. GRUB vérifie les nouvelles entrées avant de les enregistrer.",
+      "care": "Les entrées de noyau et de système d'exploitation sont générées à partir de ce qui est installé, elles ne peuvent donc pas être modifiées une par une. Supprimer memtest supprime son fichier de /boot."
+    },
+    "appearance": {
+      "what": "Change l'apparence du menu de démarrage : un thème installé, ou votre propre fond et vos couleurs, et la police. Un thème et une apparence personnalisée s'excluent, donc appliquer l'un efface l'autre.",
+      "care": "Les thèmes arrivent en archives et sont décompressés dans un dossier privé avant l'installation. Appliquer une apparence désactive les scripts qui ajoutent un thème propre."
+    }
+  }
+}

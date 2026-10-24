@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Soplos GRUB Editor",
+    "tabs": {
+      "general": {
+        "label": "General",
+        "title": "General settings",
+        "description": "Default boot entry, timeout, resolution and kernel parameters."
+      },
+      "entries": {
+        "label": "Boot entries",
+        "title": "Boot entries",
+        "description": "The entries of the boot menu: switch the changeable ones off and on, add your own or delete them."
+      },
+      "appearance": {
+        "label": "Appearance",
+        "title": "Appearance",
+        "description": "Themes, background, colors and fonts of the boot menu."
+      }
+    }
+  },
+  "common": {
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "close": "Close",
+    "done": "Done",
+    "error": "Error",
+    "ok": "OK",
+    "remove": "Remove",
+    "save": "Save"
+  },
+  "shell": {
+    "notes": "Notes"
+  },
+  "sidebar": {
+    "language": "Language",
+    "switchToLight": "Switch to the light theme",
+    "switchToDark": "Switch to the dark theme",
+    "aboutTooltip": "About Soplos GRUB Editor"
+  },
+  "about": {
+    "version": "Version {version}",
+    "tagline": "Graphical editor for the GRUB boot loader of Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "License GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "This system does not boot with GRUB",
+    "body": "The file /etc/default/grub or the update-grub command was not found, so there is nothing to edit here. Nothing has been changed."
+  },
+  "backup": {
+    "title": "Save a copy first?",
+    "body": "Before the first change, you can save a copy of /etc/default/grub wherever you want. You will not be asked again until the program is restarted.",
+    "save": "Save a copy...",
+    "saving": "Saving...",
+    "continueWithout": "Continue without a copy",
+    "saveTitle": "Save a copy of the GRUB settings"
+  },
+  "flow": {
+    "failed": "The change was not made. Nothing was left half written.",
+    "runUpdate": "Run update-grub now so the change takes effect?",
+    "runUpdateNow": "Run update-grub",
+    "updated": "GRUB was updated. The change will be there at the next boot.",
+    "updateFailed": "update-grub failed. The settings were saved, but the boot menu was not regenerated."
+  },
+  "general": {
+    "bootConfig": "Boot",
+    "bootConfigSub": "What starts by default and for how long the menu waits.",
+    "bootMode": "Default boot mode",
+    "modeFixed": "Fixed entry",
+    "modeLastInstalled": "Last installed kernel",
+    "modeLastBooted": "Last booted kernel",
+    "modeFixedText": "Always starts the entry you choose below.",
+    "modeLastInstalledText": "Starts the first entry of the menu, normally the newest kernel.",
+    "modeLastBootedText": "Starts whatever you started last time.",
+    "bootEntry": "Default boot entry",
+    "timeout": "Timeout (seconds)",
+    "resolution": "Screen resolution",
+    "resolutionAuto": "auto",
+    "advanced": "Advanced options",
+    "advancedSub": "What the menu detects and shows.",
+    "detectOs": "Detect other operating systems",
+    "showMenu": "Show the boot menu",
+    "menuNeedsTimeout": "The menu cannot be shown when the timeout is 0",
+    "recovery": "Include recovery entries",
+    "uuid": "Use the UUID of the root partition",
+    "disableSubmenu": "Disable submenus",
+    "kernelParams": "Kernel parameters",
+    "kernelParamsSub": "Options passed to the kernel at every boot.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Apply changes",
+    "applying": "Applying...",
+    "saved": "Changes saved"
+  },
+  "entries": {
+    "colName": "Name",
+    "colType": "Type",
+    "colPath": "Path",
+    "colEnabled": "Enabled",
+    "kind": {
+      "system": "system",
+      "recovery": "recovery",
+      "memtest": "memtest",
+      "firmware": "firmware"
+    },
+    "loading": "Reading the boot entries...",
+    "empty": "There are no boot entries to show.",
+    "unreadable": "The boot menu (grub.cfg) can only be read with administrator rights on this system.",
+    "read": "Read the boot entries",
+    "reading": "Reading...",
+    "add": "Add entry",
+    "addTitle": "Add a boot entry",
+    "addHint": "Write the GRUB menuentry block. It is added to /etc/grub.d/40_custom after GRUB checks it.",
+    "added": "Entry added",
+    "remove": "Remove entry",
+    "removeTitle": "Remove entry",
+    "removeMemtest": "Delete {name} from /boot? This also removes its serial-console variant, since both use the same file.",
+    "removeCustom": "Delete {name} from /etc/grub.d/40_custom? This cannot be undone.",
+    "removed": "Entry removed",
+    "updated": "Entry updated",
+    "notSupportedTitle": "Not supported",
+    "notSupported": "This entry belongs to an installed kernel or operating system. GRUB generates it from what is installed on the disk, so it cannot be switched off or removed one by one here: you would have to uninstall the kernel or the operating system itself."
+  },
+  "appearance": {
+    "inUse": "In use",
+    "sampleTitle": "How the menu will look",
+    "sampleAdvanced": "Advanced options",
+    "sampleMemtest": "Memory test",
+    "convertTitle": "Convert a font",
+    "emptyThemesBody": "Install a theme from an archive (.zip, .tar.gz...) and it will show up here.",
+    "tabTheme": "Theme",
+    "tabBackground": "Background",
+    "tabFonts": "Fonts",
+    "themeInfo": "A theme includes its own colors and fonts. For your own image and colors, use the Background tab.",
+    "emptyThemesTitle": "No themes installed",
+    "install": "Install...",
+    "disable": "Disable",
+    "selectArchive": "Select a theme archive",
+    "archives": "Theme archives",
+    "installed": "Theme {name} installed.",
+    "installFailed": "The theme could not be installed.",
+    "applyThemeTitle": "Apply theme",
+    "applyThemeBody": "Applying {name} turns off any custom background and colors. Continue?",
+    "themeApplied": "Theme applied",
+    "disableThemeTitle": "Disable theme",
+    "disableThemeBody": "This removes the theme and goes back to plain colors. Continue?",
+    "themeDisabled": "Theme disabled",
+    "removeThemeTitle": "Remove theme",
+    "removeThemeBody": "This permanently deletes the theme {name}. Are you sure?",
+    "themeRemoved": "Theme removed",
+    "removeFailed": "It could not be removed.",
+    "backgroundImage": "Background image",
+    "noImage": "No image selected",
+    "browse": "Browse...",
+    "selectImage": "Select a background image",
+    "images": "Images",
+    "colorsInfo": "Colors, when no theme is used.",
+    "textColor": "Text color",
+    "backgroundColor": "Background color",
+    "highlightText": "Highlighted text",
+    "highlightBackground": "Highlight background",
+    "applyLook": "Apply appearance",
+    "applyLookTitle": "Apply appearance",
+    "applyLookBody": "This turns off any theme and uses your background and colors. Continue?",
+    "lookApplied": "Appearance applied",
+    "removeBackgroundTitle": "Remove background",
+    "removeBackgroundBody": "This removes the background image from GRUB. The colors stay. Continue?",
+    "convertInfo": "Convert a TrueType or OpenType font to GRUB's format (PF2).",
+    "fontPlaceholder": "Select a font file...",
+    "selectFont": "Select a font file",
+    "fontFiles": "Font files",
+    "fontSize": "Font size",
+    "convert": "Convert and install",
+    "noFont": "Select a font file first.",
+    "convertFailed": "The font could not be converted.",
+    "converted": "Font {name} installed.",
+    "installedFonts": "Installed GRUB fonts",
+    "noFonts": "No fonts installed",
+    "applyFont": "Use this font",
+    "removeFont": "Remove this font",
+    "fontApplied": "Font applied",
+    "removeFontTitle": "Remove font",
+    "removeFontBody": "This permanently deletes the font {name}. Are you sure?",
+    "fontRemoved": "Font removed"
+  },
+  "colors": {
+    "black": "Black",
+    "blue": "Blue",
+    "green": "Green",
+    "cyan": "Cyan",
+    "red": "Red",
+    "magenta": "Magenta",
+    "brown": "Brown",
+    "light-gray": "Light gray",
+    "dark-gray": "Dark gray",
+    "light-blue": "Light blue",
+    "light-green": "Light green",
+    "light-cyan": "Light cyan",
+    "light-red": "Light red",
+    "light-magenta": "Light magenta",
+    "yellow": "Yellow",
+    "white": "White"
+  },
+  "hints": {
+    "bootMode": "Fixed entry always starts the same entry. Last installed kernel starts the first entry of the menu. Last booted kernel starts whatever was started last time.",
+    "bootEntry": "Only used with a fixed entry. In the other two modes GRUB chooses by itself.",
+    "timeout": "Seconds the menu waits before it starts the default entry. With 0 it starts at once.",
+    "resolution": "Resolution of the boot menu. Auto lets GRUB choose the one of your screen.",
+    "detectOs": "Looks for other operating systems on your disks and adds them to the menu. It needs the os-prober package.",
+    "showMenu": "When off, the menu stays hidden and the default entry starts unless you hold the Shift key.",
+    "recovery": "Adds a recovery mode entry for each kernel, to repair the system when it does not start.",
+    "uuid": "Identifies the root partition by its UUID instead of its device name, which can change when disks are added.",
+    "submenu": "Without submenus, every kernel is listed in the main menu instead of inside Advanced options.",
+    "kernelParams": "Separated by spaces. Quiet and splash hide the boot messages. Change them with care: a wrong option can stop the system from starting.",
+    "entriesIntro": "Each row is an entry of the boot menu. The switch turns an entry off or on without deleting it.",
+    "entriesToggle": "Only memtest and your own entries can be changed. Kernel entries follow what is installed. Changes reach the menu when update-grub runs.",
+    "themeChoice": "Install a theme from an archive, choose it and press Apply. Disable returns to plain colors.",
+    "backgroundImage": "A PNG or JPEG image. It is shown behind the menu when no theme is applied.",
+    "colors": "GRUB can only show sixteen colors, so the choice is limited to them.",
+    "fontConvert": "GRUB cannot read normal fonts. This converts a TTF or OTF file and keeps it in /boot/grub/fonts.",
+    "fontApply": "Use this font sets it for the menu. Removing a font in use also clears the setting."
+  },
+  "notes": {
+    "whatTitle": "What it does",
+    "careTitle": "Keep in mind",
+    "filesTitle": "Files it touches",
+    "general": {
+      "what": "Sets how the boot menu behaves: which entry starts by default, how long the menu waits, the screen resolution, what it detects and the parameters passed to the kernel.",
+      "care": "The default entry is only written when you choose it, so opening this page and applying never pins the boot to the current kernel. A wrong kernel parameter can stop the system from starting."
+    },
+    "entries": {
+      "what": "Lists the entries of the boot menu. The memtest entries and the ones you add can be switched off and on or deleted. New entries are checked by GRUB before they are saved.",
+      "care": "Kernel and operating system entries are generated from what is installed, so they cannot be changed one by one. Deleting memtest deletes its file from /boot."
+    },
+    "appearance": {
+      "what": "Changes how the boot menu looks: an installed theme, or your own background and colors, and the font. A theme and a custom look exclude each other, so applying one clears the other.",
+      "care": "Themes come as archives and are unpacked in a private folder before they are installed. Applying a look turns off the scripts that add a theme of their own."
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Editor GRUB Soplos",
+    "tabs": {
+      "general": {
+        "label": "General",
+        "title": "Setări generale",
+        "description": "Intrarea de boot implicită, timpul de așteptare, rezoluția și parametrii kernelului."
+      },
+      "entries": {
+        "label": "Intrări de boot",
+        "title": "Intrări de boot",
+        "description": "Intrările meniului de boot: activează și dezactivează pe cele modificabile, adaugă-le pe ale tale sau șterge-le."
+      },
+      "appearance": {
+        "label": "Aspect",
+        "title": "Aspect",
+        "description": "Teme, fundal, culori și fonturi ale meniului de boot."
+      }
+    }
+  },
+  "common": {
+    "apply": "Aplică",
+    "cancel": "Anulează",
+    "close": "Închide",
+    "done": "Gata",
+    "error": "Eroare",
+    "ok": "OK",
+    "remove": "Elimină",
+    "save": "Salvează"
+  },
+  "shell": {
+    "notes": "Adnotări"
+  },
+  "sidebar": {
+    "language": "Limbă",
+    "switchToLight": "Treci la tema luminoasă",
+    "switchToDark": "Treci la tema întunecată",
+    "aboutTooltip": "Despre Editorul GRUB Soplos"
+  },
+  "about": {
+    "version": "Versiunea {version}",
+    "tagline": "Editor grafic pentru încărcătorul de boot GRUB al Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "Licență GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "Acest sistem nu pornește cu GRUB",
+    "body": "Fișierul /etc/default/grub sau comanda update-grub nu a fost găsit, deci aici nu e nimic de editat. Nu s-a schimbat nimic."
+  },
+  "backup": {
+    "title": "Salvezi mai întâi o copie?",
+    "body": "Înainte de prima modificare poți salva o copie a fișierului /etc/default/grub unde vrei. Nu se va mai întreba până la repornirea programului.",
+    "save": "Salvează o copie...",
+    "saving": "Se salvează...",
+    "continueWithout": "Continuă fără copie",
+    "saveTitle": "Salvează o copie a setărilor GRUB"
+  },
+  "flow": {
+    "failed": "Modificarea nu s-a făcut. Nu a rămas nimic scris pe jumătate.",
+    "runUpdate": "Rulezi acum update-grub ca modificarea să aibă efect?",
+    "runUpdateNow": "Rulează update-grub",
+    "updated": "GRUB a fost actualizat. Modificarea va fi la următoarea pornire.",
+    "updateFailed": "update-grub a eșuat. Setările au fost salvate, dar meniul de boot nu a fost regenerat."
+  },
+  "general": {
+    "bootConfig": "Pornire",
+    "bootConfigSub": "Ce pornește implicit și cât așteaptă meniul.",
+    "bootMode": "Modul implicit de pornire",
+    "modeFixed": "Intrare fixă",
+    "modeLastInstalled": "Ultimul kernel instalat",
+    "modeLastBooted": "Ultimul kernel pornit",
+    "modeFixedText": "Pornește mereu intrarea aleasă mai jos.",
+    "modeLastInstalledText": "Pornește prima intrare a meniului, în mod normal cel mai nou kernel.",
+    "modeLastBootedText": "Pornește ce ai pornit data trecută.",
+    "bootEntry": "Intrarea de boot implicită",
+    "timeout": "Timp de așteptare (secunde)",
+    "resolution": "Rezoluția ecranului",
+    "resolutionAuto": "automată",
+    "advanced": "Opțiuni avansate",
+    "advancedSub": "Ce detectează și ce arată meniul.",
+    "detectOs": "Detectează alte sisteme de operare",
+    "showMenu": "Arată meniul de boot",
+    "menuNeedsTimeout": "Meniul nu poate fi afișat când timpul de așteptare este 0",
+    "recovery": "Include intrările de recuperare",
+    "uuid": "Folosește UUID-ul partiției root",
+    "disableSubmenu": "Dezactivează submeniurile",
+    "kernelParams": "Parametrii kernelului",
+    "kernelParamsSub": "Opțiuni transmise kernelului la fiecare pornire.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Aplică modificările",
+    "applying": "Se aplică...",
+    "saved": "Modificări salvate"
+  },
+  "entries": {
+    "colName": "Nume",
+    "colType": "Tip",
+    "colPath": "Cale",
+    "colEnabled": "Activă",
+    "kind": {
+      "system": "sistem",
+      "recovery": "recuperare",
+      "memtest": "memtest",
+      "firmware": "firmware"
+    },
+    "loading": "Se citesc intrările de boot...",
+    "empty": "Nu există intrări de boot de afișat.",
+    "unreadable": "Pe acest sistem meniul de boot (grub.cfg) poate fi citit doar cu drepturi de administrator.",
+    "read": "Citește intrările de boot",
+    "reading": "Se citește...",
+    "add": "Adaugă intrare",
+    "addTitle": "Adaugă o intrare de boot",
+    "addHint": "Scrie blocul menuentry al GRUB. Este adăugat în /etc/grub.d/40_custom după ce GRUB îl verifică.",
+    "added": "Intrare adăugată",
+    "remove": "Elimină intrarea",
+    "removeTitle": "Elimină intrarea",
+    "removeMemtest": "Ștergi {name} din /boot? Aceasta elimină și varianta pentru consolă serială, deoarece amândouă folosesc același fișier.",
+    "removeCustom": "Ștergi {name} din /etc/grub.d/40_custom? Nu se poate anula.",
+    "removed": "Intrare eliminată",
+    "updated": "Intrare actualizată",
+    "notSupportedTitle": "Nu este posibil",
+    "notSupported": "Această intrare aparține unui kernel sau unui sistem de operare instalat. GRUB o generează din ceea ce este instalat pe disc, deci aici nu poate fi dezactivată sau eliminată pe rând: ar trebui dezinstalat chiar kernelul sau sistemul de operare."
+  },
+  "appearance": {
+    "inUse": "În uz",
+    "sampleTitle": "Așa va arăta meniul",
+    "sampleAdvanced": "Opțiuni avansate",
+    "sampleMemtest": "Test de memorie",
+    "convertTitle": "Convertește un font",
+    "emptyThemesBody": "Instalează o temă dintr-o arhivă (.zip, .tar.gz...) și va apărea aici.",
+    "tabTheme": "Temă",
+    "tabBackground": "Fundal",
+    "tabFonts": "Fonturi",
+    "themeInfo": "O temă include propriile culori și fonturi. Pentru imaginea și culorile tale folosește fila Fundal.",
+    "emptyThemesTitle": "Nicio temă instalată",
+    "install": "Instalează...",
+    "disable": "Dezactivează",
+    "selectArchive": "Selectează o arhivă de temă",
+    "archives": "Arhive de temă",
+    "installed": "Tema {name} a fost instalată.",
+    "installFailed": "Tema nu a putut fi instalată.",
+    "applyThemeTitle": "Aplică tema",
+    "applyThemeBody": "Aplicarea {name} dezactivează orice fundal și culori proprii. Continui?",
+    "themeApplied": "Temă aplicată",
+    "disableThemeTitle": "Dezactivează tema",
+    "disableThemeBody": "Aceasta elimină tema și revine la culori simple. Continui?",
+    "themeDisabled": "Temă dezactivată",
+    "removeThemeTitle": "Elimină tema",
+    "removeThemeBody": "Aceasta șterge definitiv tema {name}. Ești sigur?",
+    "themeRemoved": "Temă eliminată",
+    "removeFailed": "Nu a putut fi eliminat.",
+    "backgroundImage": "Imagine de fundal",
+    "noImage": "Nicio imagine selectată",
+    "browse": "Răsfoiește...",
+    "selectImage": "Selectează o imagine de fundal",
+    "images": "Imagini",
+    "colorsInfo": "Culori, când nu se folosește o temă.",
+    "textColor": "Culoarea textului",
+    "backgroundColor": "Culoarea fundalului",
+    "highlightText": "Text evidențiat",
+    "highlightBackground": "Fundalul evidențierii",
+    "applyLook": "Aplică aspectul",
+    "applyLookTitle": "Aplică aspectul",
+    "applyLookBody": "Aceasta dezactivează orice temă și folosește fundalul și culorile tale. Continui?",
+    "lookApplied": "Aspect aplicat",
+    "removeBackgroundTitle": "Elimină fundalul",
+    "removeBackgroundBody": "Aceasta elimină imaginea de fundal din GRUB. Culorile rămân. Continui?",
+    "convertInfo": "Convertește un font TrueType sau OpenType în formatul GRUB (PF2).",
+    "fontPlaceholder": "Selectează un fișier de font...",
+    "selectFont": "Selectează un fișier de font",
+    "fontFiles": "Fișiere de font",
+    "fontSize": "Dimensiunea fontului",
+    "convert": "Convertește și instalează",
+    "noFont": "Selectează mai întâi un fișier de font.",
+    "convertFailed": "Fontul nu a putut fi convertit.",
+    "converted": "Fontul {name} a fost instalat.",
+    "installedFonts": "Fonturi GRUB instalate",
+    "noFonts": "Niciun font instalat",
+    "applyFont": "Folosește acest font",
+    "removeFont": "Elimină acest font",
+    "fontApplied": "Font aplicat",
+    "removeFontTitle": "Elimină fontul",
+    "removeFontBody": "Aceasta șterge definitiv fontul {name}. Ești sigur?",
+    "fontRemoved": "Font eliminat"
+  },
+  "colors": {
+    "black": "Negru",
+    "blue": "Albastru",
+    "green": "Verde",
+    "cyan": "Cyan",
+    "red": "Roșu",
+    "magenta": "Magenta",
+    "brown": "Maro",
+    "light-gray": "Gri deschis",
+    "dark-gray": "Gri închis",
+    "light-blue": "Albastru deschis",
+    "light-green": "Verde deschis",
+    "light-cyan": "Cyan deschis",
+    "light-red": "Roșu deschis",
+    "light-magenta": "Magenta deschis",
+    "yellow": "Galben",
+    "white": "Alb"
+  },
+  "hints": {
+    "bootMode": "Intrare fixă pornește mereu aceeași intrare. Ultimul kernel instalat pornește prima intrare a meniului. Ultimul kernel pornit pornește ce s-a pornit data trecută.",
+    "bootEntry": "Se folosește doar cu o intrare fixă. În celelalte două moduri GRUB alege singur.",
+    "timeout": "Secundele cât așteaptă meniul înainte să pornească intrarea implicită. Cu 0 pornește imediat.",
+    "resolution": "Rezoluția meniului de boot. Automată lasă GRUB să aleagă rezoluția ecranului tău.",
+    "detectOs": "Caută alte sisteme de operare pe discurile tale și le adaugă în meniu. Necesită pachetul os-prober.",
+    "showMenu": "Când este dezactivat, meniul rămâne ascuns și pornește intrarea implicită, dacă nu ții apăsată tasta Shift.",
+    "recovery": "Adaugă o intrare în modul de recuperare pentru fiecare kernel, pentru a repara sistemul când nu pornește.",
+    "uuid": "Identifică partiția root prin UUID în loc de numele dispozitivului, care se poate schimba când adaugi discuri.",
+    "submenu": "Fără submeniuri, fiecare kernel apare în meniul principal în loc să fie în Opțiuni avansate.",
+    "kernelParams": "Separați prin spații. Quiet și splash ascund mesajele de pornire. Schimbă-i cu grijă: o opțiune greșită poate împiedica pornirea sistemului.",
+    "entriesIntro": "Fiecare rând este o intrare a meniului de boot. Comutatorul dezactivează sau activează o intrare fără a o șterge.",
+    "entriesToggle": "Pot fi modificate doar memtest și intrările tale. Cele de kernel urmează ce este instalat. Modificările ajung în meniu când rulează update-grub.",
+    "themeChoice": "Instalează o temă dintr-o arhivă, alege-o și apasă Aplică. Dezactivează revine la culori simple.",
+    "backgroundImage": "O imagine PNG sau JPEG. Se vede în spatele meniului când nu e aplicată o temă.",
+    "colors": "GRUB poate afișa doar șaisprezece culori, deci alegerea se limitează la ele.",
+    "fontConvert": "GRUB nu poate citi fonturi obișnuite. Aceasta convertește un fișier TTF sau OTF și îl păstrează în /boot/grub/fonts.",
+    "fontApply": "Folosește acest font îl setează pentru meniu. Eliminarea unui font folosit șterge și setarea."
+  },
+  "notes": {
+    "whatTitle": "Ce face",
+    "careTitle": "De reținut",
+    "filesTitle": "Fișiere atinse",
+    "general": {
+      "what": "Stabilește cum se comportă meniul de boot: ce intrare pornește implicit, cât așteaptă meniul, rezoluția ecranului, ce detectează și parametrii transmiși kernelului.",
+      "care": "Intrarea implicită se scrie doar când o alegi, deci deschiderea acestei pagini și aplicarea nu fixează niciodată pornirea pe kernelul curent. Un parametru greșit al kernelului poate împiedica pornirea sistemului."
+    },
+    "entries": {
+      "what": "Listează intrările meniului de boot. Intrările memtest și cele adăugate de tine pot fi dezactivate, activate sau șterse. GRUB verifică intrările noi înainte de a le salva.",
+      "care": "Intrările de kernel și de sisteme de operare sunt generate din ce este instalat, deci nu pot fi modificate pe rând. Ștergerea memtest șterge fișierul său din /boot."
+    },
+    "appearance": {
+      "what": "Schimbă aspectul meniului de boot: o temă instalată, sau fundalul și culorile tale, și fontul. O temă și un aspect propriu se exclud, deci aplicarea unuia îl șterge pe celălalt.",
+      "care": "Temele vin în arhive și sunt dezarhivate într-un dosar privat înainte de instalare. Aplicarea unui aspect dezactivează scripturile care adaugă o temă proprie."
+    }
+  }
+}

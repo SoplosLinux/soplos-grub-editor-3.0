@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Editor GRUB di Soplos",
+    "tabs": {
+      "general": {
+        "label": "Generale",
+        "title": "Impostazioni generali",
+        "description": "Voce di avvio predefinita, timeout, risoluzione e parametri del kernel."
+      },
+      "entries": {
+        "label": "Voci di avvio",
+        "title": "Voci di avvio",
+        "description": "Le voci del menu di avvio: attiva e disattiva quelle modificabili, aggiungi le tue o eliminale."
+      },
+      "appearance": {
+        "label": "Aspetto",
+        "title": "Aspetto",
+        "description": "Temi, sfondo, colori e font del menu di avvio."
+      }
+    }
+  },
+  "common": {
+    "apply": "Applica",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "done": "Fatto",
+    "error": "Errore",
+    "ok": "OK",
+    "remove": "Rimuovi",
+    "save": "Salva"
+  },
+  "shell": {
+    "notes": "Annotazioni"
+  },
+  "sidebar": {
+    "language": "Lingua",
+    "switchToLight": "Passa al tema chiaro",
+    "switchToDark": "Passa al tema scuro",
+    "aboutTooltip": "Informazioni su Editor GRUB di Soplos"
+  },
+  "about": {
+    "version": "Versione {version}",
+    "tagline": "Editor grafico del bootloader GRUB di Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "Licenza GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "Questo sistema non si avvia con GRUB",
+    "body": "Il file /etc/default/grub o il comando update-grub non è stato trovato, quindi qui non c'è nulla da modificare. Non è stato cambiato nulla."
+  },
+  "backup": {
+    "title": "Salvare prima una copia?",
+    "body": "Prima della prima modifica puoi salvare una copia di /etc/default/grub dove vuoi. Non verrà chiesto di nuovo finché il programma non viene riavviato.",
+    "save": "Salva una copia...",
+    "saving": "Salvataggio...",
+    "continueWithout": "Continua senza copia",
+    "saveTitle": "Salva una copia delle impostazioni di GRUB"
+  },
+  "flow": {
+    "failed": "La modifica non è stata fatta. Non è rimasto nulla scritto a metà.",
+    "runUpdate": "Eseguire update-grub ora perché la modifica abbia effetto?",
+    "runUpdateNow": "Esegui update-grub",
+    "updated": "GRUB è stato aggiornato. La modifica ci sarà al prossimo avvio.",
+    "updateFailed": "update-grub non è riuscito. Le impostazioni sono state salvate, ma il menu di avvio non è stato rigenerato."
+  },
+  "general": {
+    "bootConfig": "Avvio",
+    "bootConfigSub": "Cosa si avvia di default e quanto attende il menu.",
+    "bootMode": "Modalità di avvio predefinita",
+    "modeFixed": "Voce fissa",
+    "modeLastInstalled": "Ultimo kernel installato",
+    "modeLastBooted": "Ultimo kernel avviato",
+    "modeFixedText": "Avvia sempre la voce scelta qui sotto.",
+    "modeLastInstalledText": "Avvia la prima voce del menu, di norma il kernel più recente.",
+    "modeLastBootedText": "Avvia ciò che hai avviato l'ultima volta.",
+    "bootEntry": "Voce di avvio predefinita",
+    "timeout": "Timeout (secondi)",
+    "resolution": "Risoluzione dello schermo",
+    "resolutionAuto": "automatica",
+    "advanced": "Opzioni avanzate",
+    "advancedSub": "Cosa rileva e mostra il menu.",
+    "detectOs": "Rileva altri sistemi operativi",
+    "showMenu": "Mostra il menu di avvio",
+    "menuNeedsTimeout": "Il menu non può essere mostrato con timeout a 0",
+    "recovery": "Includi le voci di ripristino",
+    "uuid": "Usa l'UUID della partizione root",
+    "disableSubmenu": "Disattiva i sottomenu",
+    "kernelParams": "Parametri del kernel",
+    "kernelParamsSub": "Opzioni passate al kernel a ogni avvio.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Applica le modifiche",
+    "applying": "Applicazione...",
+    "saved": "Modifiche salvate"
+  },
+  "entries": {
+    "colName": "Nome",
+    "colType": "Tipo",
+    "colPath": "Percorso",
+    "colEnabled": "Attiva",
+    "kind": {
+      "system": "sistema",
+      "recovery": "ripristino",
+      "memtest": "memtest",
+      "firmware": "firmware"
+    },
+    "loading": "Lettura delle voci di avvio...",
+    "empty": "Non ci sono voci di avvio da mostrare.",
+    "unreadable": "Su questo sistema il menu di avvio (grub.cfg) si può leggere solo con i diritti di amministratore.",
+    "read": "Leggi le voci di avvio",
+    "reading": "Lettura...",
+    "add": "Aggiungi voce",
+    "addTitle": "Aggiungi una voce di avvio",
+    "addHint": "Scrivi il blocco menuentry di GRUB. Viene aggiunto a /etc/grub.d/40_custom dopo il controllo di GRUB.",
+    "added": "Voce aggiunta",
+    "remove": "Rimuovi voce",
+    "removeTitle": "Rimuovi voce",
+    "removeMemtest": "Eliminare {name} da /boot? Questo rimuove anche la sua variante per console seriale, perché entrambe usano lo stesso file.",
+    "removeCustom": "Eliminare {name} da /etc/grub.d/40_custom? Non si può annullare.",
+    "removed": "Voce rimossa",
+    "updated": "Voce aggiornata",
+    "notSupportedTitle": "Non supportato",
+    "notSupported": "Questa voce appartiene a un kernel o a un sistema operativo installato. GRUB la genera da ciò che è installato sul disco, quindi qui non si può disattivare né rimuovere una per una: bisognerebbe disinstallare il kernel o il sistema operativo stesso."
+  },
+  "appearance": {
+    "inUse": "In uso",
+    "sampleTitle": "Ecco come apparirà il menu",
+    "sampleAdvanced": "Opzioni avanzate",
+    "sampleMemtest": "Test della memoria",
+    "convertTitle": "Converti un font",
+    "emptyThemesBody": "Installa un tema da un archivio (.zip, .tar.gz...) e comparirà qui.",
+    "tabTheme": "Tema",
+    "tabBackground": "Sfondo",
+    "tabFonts": "Font",
+    "themeInfo": "Un tema include i propri colori e font. Per la tua immagine e i tuoi colori usa la scheda Sfondo.",
+    "emptyThemesTitle": "Nessun tema installato",
+    "install": "Installa...",
+    "disable": "Disattiva",
+    "selectArchive": "Seleziona un archivio di tema",
+    "archives": "Archivi di tema",
+    "installed": "Tema {name} installato.",
+    "installFailed": "Non è stato possibile installare il tema.",
+    "applyThemeTitle": "Applica tema",
+    "applyThemeBody": "Applicare {name} disattiva qualsiasi sfondo e colore personalizzati. Continuare?",
+    "themeApplied": "Tema applicato",
+    "disableThemeTitle": "Disattiva tema",
+    "disableThemeBody": "Questo rimuove il tema e torna ai colori semplici. Continuare?",
+    "themeDisabled": "Tema disattivato",
+    "removeThemeTitle": "Rimuovi tema",
+    "removeThemeBody": "Questo elimina definitivamente il tema {name}. Sei sicuro?",
+    "themeRemoved": "Tema rimosso",
+    "removeFailed": "Non è stato possibile rimuoverlo.",
+    "backgroundImage": "Immagine di sfondo",
+    "noImage": "Nessuna immagine selezionata",
+    "browse": "Sfoglia...",
+    "selectImage": "Seleziona un'immagine di sfondo",
+    "images": "Immagini",
+    "colorsInfo": "Colori, quando non si usa un tema.",
+    "textColor": "Colore del testo",
+    "backgroundColor": "Colore di sfondo",
+    "highlightText": "Testo evidenziato",
+    "highlightBackground": "Sfondo dell'evidenziazione",
+    "applyLook": "Applica aspetto",
+    "applyLookTitle": "Applica aspetto",
+    "applyLookBody": "Questo disattiva qualsiasi tema e usa il tuo sfondo e i tuoi colori. Continuare?",
+    "lookApplied": "Aspetto applicato",
+    "removeBackgroundTitle": "Rimuovi sfondo",
+    "removeBackgroundBody": "Questo rimuove l'immagine di sfondo da GRUB. I colori restano. Continuare?",
+    "convertInfo": "Converte un font TrueType o OpenType nel formato di GRUB (PF2).",
+    "fontPlaceholder": "Seleziona un file di font...",
+    "selectFont": "Seleziona un file di font",
+    "fontFiles": "File di font",
+    "fontSize": "Dimensione del font",
+    "convert": "Converti e installa",
+    "noFont": "Seleziona prima un file di font.",
+    "convertFailed": "Non è stato possibile convertire il font.",
+    "converted": "Font {name} installato.",
+    "installedFonts": "Font GRUB installati",
+    "noFonts": "Nessun font installato",
+    "applyFont": "Usa questo font",
+    "removeFont": "Rimuovi questo font",
+    "fontApplied": "Font applicato",
+    "removeFontTitle": "Rimuovi font",
+    "removeFontBody": "Questo elimina definitivamente il font {name}. Sei sicuro?",
+    "fontRemoved": "Font rimosso"
+  },
+  "colors": {
+    "black": "Nero",
+    "blue": "Blu",
+    "green": "Verde",
+    "cyan": "Ciano",
+    "red": "Rosso",
+    "magenta": "Magenta",
+    "brown": "Marrone",
+    "light-gray": "Grigio chiaro",
+    "dark-gray": "Grigio scuro",
+    "light-blue": "Blu chiaro",
+    "light-green": "Verde chiaro",
+    "light-cyan": "Ciano chiaro",
+    "light-red": "Rosso chiaro",
+    "light-magenta": "Magenta chiaro",
+    "yellow": "Giallo",
+    "white": "Bianco"
+  },
+  "hints": {
+    "bootMode": "Voce fissa avvia sempre la stessa voce. Ultimo kernel installato avvia la prima voce del menu. Ultimo kernel avviato avvia ciò che era stato avviato l'ultima volta.",
+    "bootEntry": "Si usa solo con una voce fissa. Negli altri due modi sceglie GRUB da solo.",
+    "timeout": "Secondi che il menu attende prima di avviare la voce predefinita. Con 0 si avvia subito.",
+    "resolution": "Risoluzione del menu di avvio. Automatica lascia che GRUB scelga quella del tuo schermo.",
+    "detectOs": "Cerca altri sistemi operativi nei tuoi dischi e li aggiunge al menu. Richiede il pacchetto os-prober.",
+    "showMenu": "Se disattivato, il menu resta nascosto e si avvia la voce predefinita, a meno che tu tenga premuto il tasto Maiusc.",
+    "recovery": "Aggiunge una voce in modalità ripristino per ogni kernel, per riparare il sistema quando non si avvia.",
+    "uuid": "Identifica la partizione root con il suo UUID invece che con il nome del dispositivo, che può cambiare aggiungendo dischi.",
+    "submenu": "Senza sottomenu, ogni kernel compare nel menu principale invece che dentro Opzioni avanzate.",
+    "kernelParams": "Separati da spazi. Quiet e splash nascondono i messaggi di avvio. Cambiali con cautela: un'opzione sbagliata può impedire l'avvio del sistema.",
+    "entriesIntro": "Ogni riga è una voce del menu di avvio. L'interruttore disattiva o attiva una voce senza eliminarla.",
+    "entriesToggle": "Si possono cambiare solo memtest e le tue voci. Quelle dei kernel seguono ciò che è installato. Le modifiche arrivano al menu quando si esegue update-grub.",
+    "themeChoice": "Installa un tema da un archivio, scegli e premi Applica. Disattiva torna ai colori semplici.",
+    "backgroundImage": "Un'immagine PNG o JPEG. Si vede dietro il menu quando non è applicato un tema.",
+    "colors": "GRUB può mostrare solo sedici colori, quindi la scelta è limitata a quelli.",
+    "fontConvert": "GRUB non legge i font normali. Questo converte un file TTF o OTF e lo conserva in /boot/grub/fonts.",
+    "fontApply": "Usa questo font lo imposta per il menu. Rimuovere un font in uso cancella anche l'impostazione."
+  },
+  "notes": {
+    "whatTitle": "Cosa fa",
+    "careTitle": "Da tenere presente",
+    "filesTitle": "File che tocca",
+    "general": {
+      "what": "Definisce come si comporta il menu di avvio: quale voce si avvia di default, quanto attende il menu, la risoluzione dello schermo, cosa rileva e i parametri passati al kernel.",
+      "care": "La voce predefinita viene scritta solo quando la scegli, quindi aprire questa pagina e applicare non fissa mai l'avvio sul kernel attuale. Un parametro del kernel sbagliato può impedire l'avvio del sistema."
+    },
+    "entries": {
+      "what": "Elenca le voci del menu di avvio. Le voci memtest e quelle che aggiungi tu si possono disattivare, attivare o eliminare. GRUB controlla le voci nuove prima di salvarle.",
+      "care": "Le voci di kernel e sistemi operativi sono generate da ciò che è installato, quindi non si possono cambiare una per una. Eliminare memtest elimina il suo file da /boot."
+    },
+    "appearance": {
+      "what": "Cambia l'aspetto del menu di avvio: un tema installato, oppure il tuo sfondo e i tuoi colori, e il font. Un tema e un aspetto personalizzato si escludono, quindi applicare l'uno cancella l'altro.",
+      "care": "I temi arrivano in archivi e vengono decompressi in una cartella privata prima dell'installazione. Applicare un aspetto disattiva gli script che aggiungono un tema proprio."
+    }
+  }
+}

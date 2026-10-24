@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.soplos.grubeditor</id>
+  <pkgname>soplos-grub-editor</pkgname>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <project_group>org.soplos</project_group>
+
+  <name>Soplos GRUB Editor</name>
+  <name xml:lang="es">Editor GRUB de Soplos</name>
+  <name xml:lang="fr">Éditeur GRUB Soplos</name>
+  <name xml:lang="de">Soplos GRUB Editor</name>
+  <name xml:lang="pt">Editor GRUB Soplos</name>
+  <name xml:lang="it">Editor GRUB Soplos</name>
+  <name xml:lang="ro">Editor GRUB Soplos</name>
+  <name xml:lang="ru">Редактор GRUB Soplos</name>
+
+  <summary>Graphical editor for the GRUB boot loader of Soplos Linux</summary>
+  <summary xml:lang="es">Editor gráfico del gestor de arranque GRUB de Soplos Linux</summary>
+  <summary xml:lang="fr">Éditeur graphique du chargeur de démarrage GRUB de Soplos Linux</summary>
+  <summary xml:lang="de">Grafischer Editor für den GRUB-Bootloader von Soplos Linux</summary>
+  <summary xml:lang="pt">Editor gráfico do gestor de arranque GRUB do Soplos Linux</summary>
+  <summary xml:lang="it">Editor grafico del bootloader GRUB di Soplos Linux</summary>
+  <summary xml:lang="ro">Editor grafic pentru încărcătorul de boot GRUB al Soplos Linux</summary>
+  <summary xml:lang="ru">Графический редактор загрузчика GRUB для Soplos Linux</summary>
+
+  <description>
+    <p>
+      Soplos GRUB Editor configures the GRUB2 boot loader of Soplos Linux: the
+      default entry and the timeout, the kernel parameters, custom boot entries,
+      themes, backgrounds, colors and fonts. Every change goes through a
+      Polkit-authenticated helper, the window never runs as root, and a copy of
+      the settings can be saved before the first change.
+    </p>
+    <p xml:lang="es">
+      El Editor GRUB de Soplos configura el gestor de arranque GRUB2 de Soplos
+      Linux: la entrada por defecto y el tiempo de espera, los parámetros del
+      kernel, entradas de arranque propias, temas, fondos, colores y fuentes.
+      Cada cambio pasa por un ayudante autenticado con Polkit, la ventana nunca
+      se ejecuta como root y se puede guardar una copia de la configuración
+      antes del primer cambio.
+    </p>
+    <p xml:lang="fr">
+      L'éditeur GRUB Soplos configure le chargeur de démarrage GRUB2 de Soplos
+      Linux : l'entrée par défaut et le délai, les paramètres du noyau, les
+      entrées de démarrage personnalisées, les thèmes, les fonds, les couleurs et
+      les polices. Chaque modification passe par un assistant authentifié par
+      Polkit, la fenêtre ne s'exécute jamais en root et une copie des réglages
+      peut être enregistrée avant la première modification.
+    </p>
+    <p xml:lang="de">
+      Der Soplos GRUB Editor konfiguriert den GRUB2-Bootloader von Soplos Linux:
+      den Standardeintrag und die Wartezeit, die Kernel-Parameter, eigene
+      Booteinträge, Themes, Hintergründe, Farben und Schriften. Jede Änderung
+      läuft über einen per Polkit authentifizierten Helfer, das Fenster läuft nie
+      als root, und vor der ersten Änderung kann eine Kopie der Einstellungen
+      gespeichert werden.
+    </p>
+    <p xml:lang="pt">
+      O Editor GRUB Soplos configura o gestor de arranque GRUB2 do Soplos Linux:
+      a entrada por defeito e o tempo de espera, os parâmetros do kernel, entradas
+      de arranque próprias, temas, fundos, cores e tipos de letra. Cada alteração
+      passa por um auxiliar autenticado com o Polkit, a janela nunca corre como
+      root e pode guardar-se uma cópia das definições antes da primeira alteração.
+    </p>
+    <p xml:lang="it">
+      L'Editor GRUB di Soplos configura il bootloader GRUB2 di Soplos Linux:
+      la voce predefinita e il timeout, i parametri del kernel, voci di avvio
+      personalizzate, temi, sfondi, colori e font. Ogni modifica passa da un
+      helper autenticato con Polkit, la finestra non gira mai come root e prima
+      della prima modifica si può salvare una copia delle impostazioni.
+    </p>
+    <p xml:lang="ro">
+      Editorul GRUB Soplos configurează încărcătorul de boot GRUB2 al Soplos
+      Linux: intrarea implicită și timpul de așteptare, parametrii kernelului,
+      intrări de boot proprii, teme, fundaluri, culori și fonturi. Fiecare
+      modificare trece printr-un ajutor autentificat cu Polkit, fereastra nu
+      rulează niciodată ca root și se poate salva o copie a setărilor înainte
+      de prima modificare.
+    </p>
+    <p xml:lang="ru">
+      Редактор GRUB Soplos настраивает загрузчик GRUB2 в Soplos Linux: запись по
+      умолчанию и время ожидания, параметры ядра, собственные пункты загрузки,
+      темы, фоны, цвета и шрифты. Каждое изменение проходит через помощник с
+      аутентификацией Polkit, окно никогда не работает от root, а копию настроек
+      можно сохранить перед первым изменением.
+    </p>
+  </description>
+
+  <categories>
+    <category>System</category>
+    <category>Settings</category>
+  </categories>
+
+  <keywords>
+    <keyword>grub</keyword>
+    <keyword>boot</keyword>
+    <keyword>bootloader</keyword>
+    <keyword>theme</keyword>
+    <keyword>kernel</keyword>
+    <keyword>soplos</keyword>
+    <keyword xml:lang="es">arranque</keyword>
+    <keyword xml:lang="es">tema</keyword>
+    <keyword xml:lang="es">kernel</keyword>
+    <keyword xml:lang="fr">démarrage</keyword>
+    <keyword xml:lang="fr">thème</keyword>
+    <keyword xml:lang="fr">noyau</keyword>
+    <keyword xml:lang="de">bootloader</keyword>
+    <keyword xml:lang="de">theme</keyword>
+    <keyword xml:lang="de">kernel</keyword>
+    <keyword xml:lang="pt">arranque</keyword>
+    <keyword xml:lang="pt">tema</keyword>
+    <keyword xml:lang="pt">kernel</keyword>
+    <keyword xml:lang="it">avvio</keyword>
+    <keyword xml:lang="it">tema</keyword>
+    <keyword xml:lang="it">kernel</keyword>
+    <keyword xml:lang="ro">boot</keyword>
+    <keyword xml:lang="ro">temă</keyword>
+    <keyword xml:lang="ro">kernel</keyword>
+    <keyword xml:lang="ru">загрузка</keyword>
+    <keyword xml:lang="ru">тема</keyword>
+    <keyword xml:lang="ru">ядро</keyword>
+  </keywords>
+
+  <launchable type="desktop-id">org.soplos.grubeditor.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot01.png</image>
+      <caption>General settings: the default boot mode, the timeout and the screen resolution</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot02.png</image>
+      <caption>General settings: menu options and kernel parameters</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot03.png</image>
+      <caption>Boot entries: kernels, memtest and firmware, with a switch for each one that can be changed</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot04.png</image>
+      <caption>Appearance: the installed themes, with the one in use marked</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot05.png</image>
+      <caption>Appearance: how the menu will look with the chosen background and colors</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot06.png</image>
+      <caption>Appearance: the background image and the colors of the menu</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SoplosLinux/soplos-grub-editor-3.0/main/src-tauri/resources/screenshots/screenshot07.png</image>
+      <caption>Appearance: converting a font to GRUB's format and choosing the installed ones</caption>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <binary>soplos-grub-editor</binary>
+  </provides>
+
+  <url type="homepage">https://soplos.org</url>
+
+  <developer id="org.soplos">
+    <name>Sergi Perich</name>
+  </developer>
+
+  <releases>
+    <release version="3.0.0-alpha" date="2026-10-24">
+      <description>
+        <p>Full rewrite of Soplos GRUB Editor, from Python 3 and GTK3 to Tauri 2 with a Rust backend and a Svelte frontend. The window no longer runs as root.</p>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1" />
+</component>

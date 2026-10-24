@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Soplos GRUB Editor",
+    "tabs": {
+      "general": {
+        "label": "Allgemein",
+        "title": "Allgemeine Einstellungen",
+        "description": "Standard-Booteintrag, Wartezeit, Auflösung und Kernel-Parameter."
+      },
+      "entries": {
+        "label": "Booteinträge",
+        "title": "Booteinträge",
+        "description": "Die Einträge des Bootmenüs: änderbare ein- und ausschalten, eigene hinzufügen oder löschen."
+      },
+      "appearance": {
+        "label": "Aussehen",
+        "title": "Aussehen",
+        "description": "Themes, Hintergrund, Farben und Schriften des Bootmenüs."
+      }
+    }
+  },
+  "common": {
+    "apply": "Anwenden",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "done": "Fertig",
+    "error": "Fehler",
+    "ok": "OK",
+    "remove": "Entfernen",
+    "save": "Speichern"
+  },
+  "shell": {
+    "notes": "Hinweise"
+  },
+  "sidebar": {
+    "language": "Sprache",
+    "switchToLight": "Zum hellen Theme wechseln",
+    "switchToDark": "Zum dunklen Theme wechseln",
+    "aboutTooltip": "Über den Soplos GRUB Editor"
+  },
+  "about": {
+    "version": "Version {version}",
+    "tagline": "Grafischer Editor für den GRUB-Bootloader von Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "Lizenz GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "Dieses System startet nicht mit GRUB",
+    "body": "Die Datei /etc/default/grub oder der Befehl update-grub wurde nicht gefunden, daher gibt es hier nichts zu bearbeiten. Es wurde nichts geändert."
+  },
+  "backup": {
+    "title": "Zuerst eine Kopie speichern?",
+    "body": "Vor der ersten Änderung können Sie eine Kopie von /etc/default/grub speichern, wo Sie möchten. Bis zum Neustart des Programms wird nicht erneut gefragt.",
+    "save": "Kopie speichern...",
+    "saving": "Wird gespeichert...",
+    "continueWithout": "Ohne Kopie fortfahren",
+    "saveTitle": "Kopie der GRUB-Einstellungen speichern"
+  },
+  "flow": {
+    "failed": "Die Änderung wurde nicht durchgeführt. Es blieb nichts halb geschrieben zurück.",
+    "runUpdate": "update-grub jetzt ausführen, damit die Änderung wirksam wird?",
+    "runUpdateNow": "update-grub ausführen",
+    "updated": "GRUB wurde aktualisiert. Die Änderung gilt ab dem nächsten Start.",
+    "updateFailed": "update-grub ist fehlgeschlagen. Die Einstellungen wurden gespeichert, aber das Bootmenü wurde nicht neu erzeugt."
+  },
+  "general": {
+    "bootConfig": "Start",
+    "bootConfigSub": "Was standardmäßig startet und wie lange das Menü wartet.",
+    "bootMode": "Standard-Bootmodus",
+    "modeFixed": "Fester Eintrag",
+    "modeLastInstalled": "Zuletzt installierter Kernel",
+    "modeLastBooted": "Zuletzt gestarteter Kernel",
+    "modeFixedText": "Startet immer den unten gewählten Eintrag.",
+    "modeLastInstalledText": "Startet den ersten Eintrag des Menüs, normalerweise den neuesten Kernel.",
+    "modeLastBootedText": "Startet, was Sie beim letzten Mal gestartet haben.",
+    "bootEntry": "Standard-Booteintrag",
+    "timeout": "Wartezeit (Sekunden)",
+    "resolution": "Bildschirmauflösung",
+    "resolutionAuto": "automatisch",
+    "advanced": "Erweiterte Optionen",
+    "advancedSub": "Was das Menü erkennt und anzeigt.",
+    "detectOs": "Andere Betriebssysteme erkennen",
+    "showMenu": "Bootmenü anzeigen",
+    "menuNeedsTimeout": "Das Menü kann bei einer Wartezeit von 0 nicht angezeigt werden",
+    "recovery": "Wiederherstellungseinträge einbeziehen",
+    "uuid": "UUID der Root-Partition verwenden",
+    "disableSubmenu": "Untermenüs deaktivieren",
+    "kernelParams": "Kernel-Parameter",
+    "kernelParamsSub": "Optionen, die bei jedem Start an den Kernel übergeben werden.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Änderungen anwenden",
+    "applying": "Wird angewendet...",
+    "saved": "Änderungen gespeichert"
+  },
+  "entries": {
+    "colName": "Name",
+    "colType": "Typ",
+    "colPath": "Pfad",
+    "colEnabled": "Aktiv",
+    "kind": {
+      "system": "System",
+      "recovery": "Wiederherstellung",
+      "memtest": "Memtest",
+      "firmware": "Firmware"
+    },
+    "loading": "Booteinträge werden gelesen...",
+    "empty": "Es gibt keine Booteinträge anzuzeigen.",
+    "unreadable": "Das Bootmenü (grub.cfg) kann auf diesem System nur mit Administratorrechten gelesen werden.",
+    "read": "Booteinträge lesen",
+    "reading": "Wird gelesen...",
+    "add": "Eintrag hinzufügen",
+    "addTitle": "Booteintrag hinzufügen",
+    "addHint": "Schreiben Sie den GRUB-menuentry-Block. Er wird nach der Prüfung durch GRUB zu /etc/grub.d/40_custom hinzugefügt.",
+    "added": "Eintrag hinzugefügt",
+    "remove": "Eintrag entfernen",
+    "removeTitle": "Eintrag entfernen",
+    "removeMemtest": "{name} aus /boot löschen? Dadurch wird auch die Variante für die serielle Konsole entfernt, da beide dieselbe Datei verwenden.",
+    "removeCustom": "{name} aus /etc/grub.d/40_custom löschen? Das lässt sich nicht rückgängig machen.",
+    "removed": "Eintrag entfernt",
+    "updated": "Eintrag aktualisiert",
+    "notSupportedTitle": "Nicht unterstützt",
+    "notSupported": "Dieser Eintrag gehört zu einem installierten Kernel oder Betriebssystem. GRUB erzeugt ihn aus dem, was auf der Festplatte installiert ist, daher kann er hier nicht einzeln deaktiviert oder entfernt werden: Sie müssten den Kernel oder das Betriebssystem selbst deinstallieren."
+  },
+  "appearance": {
+    "inUse": "In Verwendung",
+    "sampleTitle": "So sieht das Menü aus",
+    "sampleAdvanced": "Erweiterte Optionen",
+    "sampleMemtest": "Speichertest",
+    "convertTitle": "Schrift umwandeln",
+    "emptyThemesBody": "Installieren Sie ein Theme aus einem Archiv (.zip, .tar.gz...) und es erscheint hier.",
+    "tabTheme": "Theme",
+    "tabBackground": "Hintergrund",
+    "tabFonts": "Schriften",
+    "themeInfo": "Ein Theme bringt eigene Farben und Schriften mit. Für ein eigenes Bild und eigene Farben nutzen Sie den Reiter Hintergrund.",
+    "emptyThemesTitle": "Keine Themes installiert",
+    "install": "Installieren...",
+    "disable": "Deaktivieren",
+    "selectArchive": "Theme-Archiv auswählen",
+    "archives": "Theme-Archive",
+    "installed": "Theme {name} installiert.",
+    "installFailed": "Das Theme konnte nicht installiert werden.",
+    "applyThemeTitle": "Theme anwenden",
+    "applyThemeBody": "Das Anwenden von {name} schaltet eigenen Hintergrund und eigene Farben ab. Fortfahren?",
+    "themeApplied": "Theme angewendet",
+    "disableThemeTitle": "Theme deaktivieren",
+    "disableThemeBody": "Dadurch wird das Theme entfernt und zu einfachen Farben zurückgekehrt. Fortfahren?",
+    "themeDisabled": "Theme deaktiviert",
+    "removeThemeTitle": "Theme entfernen",
+    "removeThemeBody": "Dadurch wird das Theme {name} endgültig gelöscht. Sind Sie sicher?",
+    "themeRemoved": "Theme entfernt",
+    "removeFailed": "Es konnte nicht entfernt werden.",
+    "backgroundImage": "Hintergrundbild",
+    "noImage": "Kein Bild ausgewählt",
+    "browse": "Durchsuchen...",
+    "selectImage": "Hintergrundbild auswählen",
+    "images": "Bilder",
+    "colorsInfo": "Farben, wenn kein Theme verwendet wird.",
+    "textColor": "Textfarbe",
+    "backgroundColor": "Hintergrundfarbe",
+    "highlightText": "Hervorgehobener Text",
+    "highlightBackground": "Hintergrund der Hervorhebung",
+    "applyLook": "Aussehen anwenden",
+    "applyLookTitle": "Aussehen anwenden",
+    "applyLookBody": "Dadurch wird jedes Theme abgeschaltet und Ihr Hintergrund mit Ihren Farben verwendet. Fortfahren?",
+    "lookApplied": "Aussehen angewendet",
+    "removeBackgroundTitle": "Hintergrund entfernen",
+    "removeBackgroundBody": "Dadurch wird das Hintergrundbild aus GRUB entfernt. Die Farben bleiben. Fortfahren?",
+    "convertInfo": "Eine TrueType- oder OpenType-Schrift in das GRUB-Format (PF2) umwandeln.",
+    "fontPlaceholder": "Schriftdatei auswählen...",
+    "selectFont": "Schriftdatei auswählen",
+    "fontFiles": "Schriftdateien",
+    "fontSize": "Schriftgröße",
+    "convert": "Umwandeln und installieren",
+    "noFont": "Wählen Sie zuerst eine Schriftdatei aus.",
+    "convertFailed": "Die Schrift konnte nicht umgewandelt werden.",
+    "converted": "Schrift {name} installiert.",
+    "installedFonts": "Installierte GRUB-Schriften",
+    "noFonts": "Keine Schriften installiert",
+    "applyFont": "Diese Schrift verwenden",
+    "removeFont": "Diese Schrift entfernen",
+    "fontApplied": "Schrift angewendet",
+    "removeFontTitle": "Schrift entfernen",
+    "removeFontBody": "Dadurch wird die Schrift {name} endgültig gelöscht. Sind Sie sicher?",
+    "fontRemoved": "Schrift entfernt"
+  },
+  "colors": {
+    "black": "Schwarz",
+    "blue": "Blau",
+    "green": "Grün",
+    "cyan": "Cyan",
+    "red": "Rot",
+    "magenta": "Magenta",
+    "brown": "Braun",
+    "light-gray": "Hellgrau",
+    "dark-gray": "Dunkelgrau",
+    "light-blue": "Hellblau",
+    "light-green": "Hellgrün",
+    "light-cyan": "Hellcyan",
+    "light-red": "Hellrot",
+    "light-magenta": "Hellmagenta",
+    "yellow": "Gelb",
+    "white": "Weiß"
+  },
+  "hints": {
+    "bootMode": "Fester Eintrag startet immer denselben Eintrag. Zuletzt installierter Kernel startet den ersten Eintrag des Menüs. Zuletzt gestarteter Kernel startet, was beim letzten Mal gestartet wurde.",
+    "bootEntry": "Wird nur bei einem festen Eintrag verwendet. In den anderen beiden Modi wählt GRUB selbst.",
+    "timeout": "Sekunden, die das Menü wartet, bevor der Standardeintrag startet. Bei 0 startet er sofort.",
+    "resolution": "Auflösung des Bootmenüs. Automatisch lässt GRUB die Ihres Bildschirms wählen.",
+    "detectOs": "Sucht auf Ihren Festplatten nach anderen Betriebssystemen und fügt sie dem Menü hinzu. Benötigt das Paket os-prober.",
+    "showMenu": "Wenn aus, bleibt das Menü verborgen und der Standardeintrag startet, außer Sie halten die Umschalttaste gedrückt.",
+    "recovery": "Fügt für jeden Kernel einen Wiederherstellungsmodus hinzu, um das System zu reparieren, wenn es nicht startet.",
+    "uuid": "Erkennt die Root-Partition an ihrer UUID statt am Gerätenamen, der sich beim Hinzufügen von Festplatten ändern kann.",
+    "submenu": "Ohne Untermenüs steht jeder Kernel im Hauptmenü statt unter Erweiterte Optionen.",
+    "kernelParams": "Durch Leerzeichen getrennt. Quiet und splash blenden die Startmeldungen aus. Mit Vorsicht ändern: Eine falsche Option kann den Systemstart verhindern.",
+    "entriesIntro": "Jede Zeile ist ein Eintrag des Bootmenüs. Der Schalter deaktiviert oder aktiviert einen Eintrag, ohne ihn zu löschen.",
+    "entriesToggle": "Nur Memtest und Ihre eigenen Einträge lassen sich ändern. Kernel-Einträge folgen dem Installierten. Änderungen erreichen das Menü, wenn update-grub läuft.",
+    "themeChoice": "Installieren Sie ein Theme aus einem Archiv, wählen Sie es aus und klicken Sie auf Anwenden. Deaktivieren kehrt zu einfachen Farben zurück.",
+    "backgroundImage": "Ein PNG- oder JPEG-Bild. Es erscheint hinter dem Menü, wenn kein Theme angewendet ist.",
+    "colors": "GRUB kann nur sechzehn Farben anzeigen, daher ist die Auswahl darauf beschränkt.",
+    "fontConvert": "GRUB kann normale Schriften nicht lesen. Dies wandelt eine TTF- oder OTF-Datei um und legt sie in /boot/grub/fonts ab.",
+    "fontApply": "Diese Schrift verwenden setzt sie für das Menü. Das Entfernen einer verwendeten Schrift löscht auch die Einstellung."
+  },
+  "notes": {
+    "whatTitle": "Was es tut",
+    "careTitle": "Zu beachten",
+    "filesTitle": "Betroffene Dateien",
+    "general": {
+      "what": "Legt fest, wie sich das Bootmenü verhält: welcher Eintrag standardmäßig startet, wie lange das Menü wartet, die Bildschirmauflösung, was erkannt wird und die an den Kernel übergebenen Parameter.",
+      "care": "Der Standardeintrag wird nur geschrieben, wenn Sie ihn wählen, daher legt das Öffnen dieser Seite und Anwenden den Start nie auf den aktuellen Kernel fest. Ein falscher Kernel-Parameter kann den Systemstart verhindern."
+    },
+    "entries": {
+      "what": "Listet die Einträge des Bootmenüs auf. Die Memtest-Einträge und die von Ihnen hinzugefügten lassen sich aus- und einschalten oder löschen. Neue Einträge werden von GRUB geprüft, bevor sie gespeichert werden.",
+      "care": "Kernel- und Betriebssystem-Einträge werden aus dem Installierten erzeugt, daher lassen sie sich nicht einzeln ändern. Das Löschen von Memtest löscht seine Datei aus /boot."
+    },
+    "appearance": {
+      "what": "Ändert das Aussehen des Bootmenüs: ein installiertes Theme oder Ihr eigener Hintergrund mit Farben und die Schrift. Ein Theme und ein eigenes Aussehen schließen sich aus, daher löscht das Anwenden des einen das andere.",
+      "care": "Themes kommen als Archive und werden vor der Installation in einem privaten Ordner entpackt. Das Anwenden eines Aussehens schaltet die Skripte ab, die ein eigenes Theme hinzufügen."
+    }
+  }
+}

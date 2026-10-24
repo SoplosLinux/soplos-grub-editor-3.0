@@ -1,0 +1,241 @@
+{
+  "app": {
+    "title": "Editor GRUB Soplos",
+    "tabs": {
+      "general": {
+        "label": "Geral",
+        "title": "Definições gerais",
+        "description": "Entrada de arranque por defeito, tempo de espera, resolução e parâmetros do kernel."
+      },
+      "entries": {
+        "label": "Entradas de arranque",
+        "title": "Entradas de arranque",
+        "description": "As entradas do menu de arranque: ativa e desativa as que se podem alterar, adiciona as tuas ou apaga-as."
+      },
+      "appearance": {
+        "label": "Aparência",
+        "title": "Aparência",
+        "description": "Temas, fundo, cores e tipos de letra do menu de arranque."
+      }
+    }
+  },
+  "common": {
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "done": "Concluído",
+    "error": "Erro",
+    "ok": "OK",
+    "remove": "Remover",
+    "save": "Guardar"
+  },
+  "shell": {
+    "notes": "Anotações"
+  },
+  "sidebar": {
+    "language": "Idioma",
+    "switchToLight": "Mudar para o tema claro",
+    "switchToDark": "Mudar para o tema escuro",
+    "aboutTooltip": "Sobre o Editor GRUB Soplos"
+  },
+  "about": {
+    "version": "Versão {version}",
+    "tagline": "Editor gráfico do gestor de arranque GRUB do Soplos Linux.",
+    "copyright": "Copyright © 2026 Sergi Perich",
+    "license": "Licença GPL-3.0-or-later",
+    "website": "soplos.org"
+  },
+  "noGrub": {
+    "title": "Este sistema não arranca com o GRUB",
+    "body": "O ficheiro /etc/default/grub ou o comando update-grub não foi encontrado, por isso aqui não há nada para editar. Não foi alterado nada."
+  },
+  "backup": {
+    "title": "Guardar primeiro uma cópia?",
+    "body": "Antes da primeira alteração, podes guardar uma cópia de /etc/default/grub onde quiseres. Não voltará a perguntar até reiniciares o programa.",
+    "save": "Guardar uma cópia...",
+    "saving": "A guardar...",
+    "continueWithout": "Continuar sem cópia",
+    "saveTitle": "Guardar uma cópia das definições do GRUB"
+  },
+  "flow": {
+    "failed": "A alteração não foi feita. Não ficou nada escrito a meio.",
+    "runUpdate": "Executar o update-grub agora para que a alteração tenha efeito?",
+    "runUpdateNow": "Executar update-grub",
+    "updated": "O GRUB foi atualizado. A alteração estará lá no próximo arranque.",
+    "updateFailed": "O update-grub falhou. As definições foram guardadas, mas o menu de arranque não foi regenerado."
+  },
+  "general": {
+    "bootConfig": "Arranque",
+    "bootConfigSub": "O que arranca por defeito e quanto espera o menu.",
+    "bootMode": "Modo de arranque por defeito",
+    "modeFixed": "Entrada fixa",
+    "modeLastInstalled": "Último kernel instalado",
+    "modeLastBooted": "Último kernel arrancado",
+    "modeFixedText": "Arranca sempre a entrada que escolheres abaixo.",
+    "modeLastInstalledText": "Arranca a primeira entrada do menu, normalmente o kernel mais recente.",
+    "modeLastBootedText": "Arranca o que arrancaste da última vez.",
+    "bootEntry": "Entrada de arranque por defeito",
+    "timeout": "Tempo de espera (segundos)",
+    "resolution": "Resolução do ecrã",
+    "resolutionAuto": "automática",
+    "advanced": "Opções avançadas",
+    "advancedSub": "O que o menu deteta e mostra.",
+    "detectOs": "Detetar outros sistemas operativos",
+    "showMenu": "Mostrar o menu de arranque",
+    "menuNeedsTimeout": "O menu não pode ser mostrado com o tempo de espera a 0",
+    "recovery": "Incluir entradas de recuperação",
+    "uuid": "Usar o UUID da partição raiz",
+    "disableSubmenu": "Desativar submenus",
+    "kernelParams": "Parâmetros do kernel",
+    "kernelParamsSub": "Opções passadas ao kernel em cada arranque.",
+    "kernelPlaceholder": "quiet splash resume=UUID=...",
+    "apply": "Aplicar alterações",
+    "applying": "A aplicar...",
+    "saved": "Alterações guardadas"
+  },
+  "entries": {
+    "colName": "Nome",
+    "colType": "Tipo",
+    "colPath": "Caminho",
+    "colEnabled": "Ativa",
+    "kind": {
+      "system": "sistema",
+      "recovery": "recuperação",
+      "memtest": "memtest",
+      "firmware": "firmware"
+    },
+    "loading": "A ler as entradas de arranque...",
+    "empty": "Não há entradas de arranque para mostrar.",
+    "unreadable": "Neste sistema, o menu de arranque (grub.cfg) só pode ser lido com permissões de administrador.",
+    "read": "Ler as entradas de arranque",
+    "reading": "A ler...",
+    "add": "Adicionar entrada",
+    "addTitle": "Adicionar uma entrada de arranque",
+    "addHint": "Escreve o bloco menuentry do GRUB. É adicionado a /etc/grub.d/40_custom depois de o GRUB o verificar.",
+    "added": "Entrada adicionada",
+    "remove": "Remover entrada",
+    "removeTitle": "Remover entrada",
+    "removeMemtest": "Apagar {name} de /boot? Isto também remove a sua variante para consola série, porque ambas usam o mesmo ficheiro.",
+    "removeCustom": "Apagar {name} de /etc/grub.d/40_custom? Não se pode desfazer.",
+    "removed": "Entrada removida",
+    "updated": "Entrada atualizada",
+    "notSupportedTitle": "Não suportado",
+    "notSupported": "Esta entrada pertence a um kernel ou a um sistema operativo instalado. O GRUB gera-a a partir do que está instalado no disco, por isso aqui não se pode desativar nem remover uma a uma: seria preciso desinstalar o próprio kernel ou sistema operativo."
+  },
+  "appearance": {
+    "inUse": "Em uso",
+    "sampleTitle": "Assim ficará o menu",
+    "sampleAdvanced": "Opções avançadas",
+    "sampleMemtest": "Teste de memória",
+    "convertTitle": "Converter um tipo de letra",
+    "emptyThemesBody": "Instala um tema a partir de um arquivo (.zip, .tar.gz...) e aparecerá aqui.",
+    "tabTheme": "Tema",
+    "tabBackground": "Fundo",
+    "tabFonts": "Tipos de letra",
+    "themeInfo": "Um tema inclui as suas próprias cores e tipos de letra. Para a tua própria imagem e cores, usa o separador Fundo.",
+    "emptyThemesTitle": "Nenhum tema instalado",
+    "install": "Instalar...",
+    "disable": "Desativar",
+    "selectArchive": "Seleciona um arquivo de tema",
+    "archives": "Arquivos de tema",
+    "installed": "Tema {name} instalado.",
+    "installFailed": "Não foi possível instalar o tema.",
+    "applyThemeTitle": "Aplicar tema",
+    "applyThemeBody": "Aplicar {name} desativa qualquer fundo e cores próprios. Continuar?",
+    "themeApplied": "Tema aplicado",
+    "disableThemeTitle": "Desativar tema",
+    "disableThemeBody": "Isto remove o tema e volta às cores simples. Continuar?",
+    "themeDisabled": "Tema desativado",
+    "removeThemeTitle": "Remover tema",
+    "removeThemeBody": "Isto apaga o tema {name} definitivamente. Tens a certeza?",
+    "themeRemoved": "Tema removido",
+    "removeFailed": "Não foi possível remover.",
+    "backgroundImage": "Imagem de fundo",
+    "noImage": "Nenhuma imagem selecionada",
+    "browse": "Procurar...",
+    "selectImage": "Seleciona uma imagem de fundo",
+    "images": "Imagens",
+    "colorsInfo": "Cores, quando não se usa um tema.",
+    "textColor": "Cor do texto",
+    "backgroundColor": "Cor de fundo",
+    "highlightText": "Texto realçado",
+    "highlightBackground": "Fundo do realce",
+    "applyLook": "Aplicar aparência",
+    "applyLookTitle": "Aplicar aparência",
+    "applyLookBody": "Isto desativa qualquer tema e usa o teu fundo e as tuas cores. Continuar?",
+    "lookApplied": "Aparência aplicada",
+    "removeBackgroundTitle": "Remover fundo",
+    "removeBackgroundBody": "Isto remove a imagem de fundo do GRUB. As cores ficam. Continuar?",
+    "convertInfo": "Converte um tipo de letra TrueType ou OpenType para o formato do GRUB (PF2).",
+    "fontPlaceholder": "Seleciona um ficheiro de tipo de letra...",
+    "selectFont": "Seleciona um ficheiro de tipo de letra",
+    "fontFiles": "Ficheiros de tipo de letra",
+    "fontSize": "Tamanho do tipo de letra",
+    "convert": "Converter e instalar",
+    "noFont": "Seleciona primeiro um ficheiro de tipo de letra.",
+    "convertFailed": "Não foi possível converter o tipo de letra.",
+    "converted": "Tipo de letra {name} instalado.",
+    "installedFonts": "Tipos de letra do GRUB instalados",
+    "noFonts": "Nenhum tipo de letra instalado",
+    "applyFont": "Usar este tipo de letra",
+    "removeFont": "Remover este tipo de letra",
+    "fontApplied": "Tipo de letra aplicado",
+    "removeFontTitle": "Remover tipo de letra",
+    "removeFontBody": "Isto apaga o tipo de letra {name} definitivamente. Tens a certeza?",
+    "fontRemoved": "Tipo de letra removido"
+  },
+  "colors": {
+    "black": "Preto",
+    "blue": "Azul",
+    "green": "Verde",
+    "cyan": "Ciano",
+    "red": "Vermelho",
+    "magenta": "Magenta",
+    "brown": "Castanho",
+    "light-gray": "Cinzento claro",
+    "dark-gray": "Cinzento escuro",
+    "light-blue": "Azul claro",
+    "light-green": "Verde claro",
+    "light-cyan": "Ciano claro",
+    "light-red": "Vermelho claro",
+    "light-magenta": "Magenta claro",
+    "yellow": "Amarelo",
+    "white": "Branco"
+  },
+  "hints": {
+    "bootMode": "Entrada fixa arranca sempre a mesma entrada. Último kernel instalado arranca a primeira entrada do menu. Último kernel arrancado arranca o que foi arrancado da última vez.",
+    "bootEntry": "Só se usa com uma entrada fixa. Nos outros dois modos o GRUB escolhe por si.",
+    "timeout": "Segundos que o menu espera antes de arrancar a entrada por defeito. Com 0 arranca logo.",
+    "resolution": "Resolução do menu de arranque. Automática deixa o GRUB escolher a do teu ecrã.",
+    "detectOs": "Procura outros sistemas operativos nos teus discos e adiciona-os ao menu. Precisa do pacote os-prober.",
+    "showMenu": "Se estiver desativado, o menu fica escondido e arranca a entrada por defeito, a não ser que mantenhas premida a tecla Shift.",
+    "recovery": "Adiciona uma entrada em modo de recuperação para cada kernel, para reparar o sistema quando não arranca.",
+    "uuid": "Identifica a partição raiz pelo seu UUID em vez do nome do dispositivo, que pode mudar ao adicionar discos.",
+    "submenu": "Sem submenus, cada kernel aparece no menu principal em vez de estar dentro de Opções avançadas.",
+    "kernelParams": "Separados por espaços. Quiet e splash escondem as mensagens de arranque. Altera-os com cuidado: uma opção errada pode impedir o sistema de arrancar.",
+    "entriesIntro": "Cada linha é uma entrada do menu de arranque. O interruptor desativa ou ativa uma entrada sem a apagar.",
+    "entriesToggle": "Só se podem alterar o memtest e as tuas entradas. As de kernel seguem o que está instalado. As alterações chegam ao menu quando o update-grub é executado.",
+    "themeChoice": "Instala um tema a partir de um arquivo, escolhe-o e carrega em Aplicar. Desativar volta às cores simples.",
+    "backgroundImage": "Uma imagem PNG ou JPEG. Vê-se atrás do menu quando não há um tema aplicado.",
+    "colors": "O GRUB só consegue mostrar dezasseis cores, por isso a escolha limita-se a elas.",
+    "fontConvert": "O GRUB não consegue ler tipos de letra normais. Isto converte um ficheiro TTF ou OTF e guarda-o em /boot/grub/fonts.",
+    "fontApply": "Usar este tipo de letra define-o para o menu. Remover um tipo de letra em uso também limpa a definição."
+  },
+  "notes": {
+    "whatTitle": "O que faz",
+    "careTitle": "Tem em conta",
+    "filesTitle": "Ficheiros que toca",
+    "general": {
+      "what": "Define como se comporta o menu de arranque: que entrada arranca por defeito, quanto espera o menu, a resolução do ecrã, o que deteta e os parâmetros passados ao kernel.",
+      "care": "A entrada por defeito só é escrita quando a escolhes, por isso abrir esta página e aplicar nunca fixa o arranque ao kernel atual. Um parâmetro de kernel errado pode impedir o sistema de arrancar."
+    },
+    "entries": {
+      "what": "Lista as entradas do menu de arranque. As de memtest e as que adicionares podem ser desativadas e ativadas ou apagadas. O GRUB verifica as entradas novas antes de as guardar.",
+      "care": "As entradas de kernel e de sistemas operativos são geradas a partir do que está instalado, por isso não se podem alterar uma a uma. Apagar o memtest apaga o seu ficheiro de /boot."
+    },
+    "appearance": {
+      "what": "Muda o aspeto do menu de arranque: um tema instalado, ou o teu fundo e cores, e o tipo de letra. Um tema e uma aparência própria excluem-se, por isso aplicar um apaga a outra.",
+      "care": "Os temas chegam em arquivos e são descomprimidos numa pasta privada antes de instalados. Aplicar uma aparência desativa os scripts que adicionam um tema próprio."
+    }
+  }
+}
