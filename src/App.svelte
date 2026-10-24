@@ -10,7 +10,10 @@
   import AboutDialog from "./components/AboutDialog.svelte";
   import DialogHost from "./components/DialogHost.svelte";
   import NotesPanel from "./components/NotesPanel.svelte";
+  import PendingBar from "./components/PendingBar.svelte";
+  import JobOutput from "./components/JobOutput.svelte";
   import { showNotes } from "./lib/ui";
+  import { pending, discardAll } from "./lib/pending";
   import General from "./views/General.svelte";
   import Entries from "./views/Entries.svelte";
   import Appearance from "./views/Appearance.svelte";
@@ -50,6 +53,22 @@
   // null until it is known whether this system boots with GRUB at all.
   let presence: Presence | null = null;
 
+  // Closing the window with changes still waiting asks first; if they are
+  // discarded the list is empty, so the second close goes through.
+  onMount(() => {
+    let stop: (() => void) | undefined;
+    getCurrentWindow()
+      .onCloseRequested(async (event) => {
+        if ($pending.length === 0) return;
+        event.preventDefault();
+        await discardAll();
+        if ($pending.length === 0) await getCurrentWindow().close();
+      })
+      .then((unlisten) => (stop = unlisten))
+      .catch(() => undefined);
+    return () => stop?.();
+  });
+
   onMount(async () => {
     try {
       appVersion = await getVersion();
@@ -72,7 +91,6 @@
   setContext("openAbout", () => (aboutOpen = true));
 
   $: activeTab = tabs.find((t) => t.id === active)!;
-  $: ActiveView = views[active];
   $: hasGrub = presence ? presence.hasConfig && presence.hasUpdateGrub : true;
 
   let aboutOpen = false;
@@ -138,8 +156,14 @@
         </div>
       {:else}
         <div class="grid gap-4 {$showNotes ? 'items-start lg:grid-cols-[minmax(0,1fr)_290px]' : ''}">
+          <!-- All three pages stay mounted, so what was typed or chosen on one
+               is still there when coming back to it from another. -->
           <div class="min-w-0">
-            <svelte:component this={ActiveView} />
+            {#each tabs as tab (tab.id)}
+              <div class:hidden={tab.id !== active}>
+                <svelte:component this={views[tab.id]} />
+              </div>
+            {/each}
           </div>
           {#if $showNotes}
             <NotesPanel page={active === "entries" ? "entries" : active === "appearance" ? "appearance" : "general"} />
@@ -147,6 +171,7 @@
         </div>
       {/if}
     </div>
+    <PendingBar />
   </div>
 </div>
 
@@ -155,3 +180,4 @@
 {/if}
 
 <DialogHost />
+<JobOutput />

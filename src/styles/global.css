@@ -103,3 +103,24 @@ select option {
 input[type="number"]::-webkit-inner-spin-button {
   opacity: 0.6;
 }
+
+/* Progress bar with no known end: a bar slides along the track. */
+@keyframes progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(260%);
+  }
+}
+
+.progress-indeterminate {
+  animation: progress-slide 1.3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-indeterminate {
+    animation: none;
+    transform: translateX(75%);
+  }
+}
