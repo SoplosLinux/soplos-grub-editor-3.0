@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Capabilities for the main Soplos GRUB Editor window",
   "windows": ["main"],
-  "permissions": ["core:default", "core:window:allow-close", "shell:allow-open", "dialog:default"]
+  "permissions": ["core:default", "core:window:allow-close", "core:window:allow-destroy","shell:allow-open", "dialog:default"]
 }

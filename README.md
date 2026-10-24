@@ -1,6 +1,6 @@
 # Soplos GRUB Editor 3.0
 
-![Version](https://img.shields.io/badge/version-3.0.0--alpha-blue)
+![Version](https://img.shields.io/badge/version-3.0.0--beta-blue)
 ![License](https://img.shields.io/badge/license-GPL--3.0--or--later-green)
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
 ![Tauri](https://img.shields.io/badge/Tauri-2-orange)
@@ -36,7 +36,7 @@ sudo apt install soplos-grub-editor
 
 ## Features
 
-- **Default boot entry**: a fixed entry, the last installed kernel, or the last booted one. The entry is only written when it is chosen: opening the page and pressing Apply never pins the default to the current kernel.
+- **Default boot entry**: a fixed entry, the last installed kernel, or the last booted one. The entry is only written when it is chosen: opening the page and applying never pins the default to the current kernel.
 - **Menu settings**: timeout, screen resolution, detection of other operating systems, recovery entries, use of UUIDs, submenus and the kernel parameters.
 - **Boot entries**: the entries of the menu, submenus included. The memtest entries and the ones written to `/etc/grub.d/40_custom` can be switched off, switched on and deleted, and new custom entries are added from the same view. Kernel and operating system entries come from what is installed and are not changeable one by one.
 - **Themes**: install a theme from an archive (`.zip`, `.tar.gz`, `.tar.xz`, `.tar.bz2`), apply it, disable it or remove it.
@@ -44,7 +44,7 @@ sudo apt install soplos-grub-editor
 - **Fonts**: convert TrueType and OpenType fonts to GRUB's PF2 format, apply them and remove them.
 - **Copy before changes**: before the first change of a session the program offers to save a copy of `/etc/default/grub` wherever the user chooses. It leaves no backup files of its own.
 - **Notes**: a panel beside each page and a short line under each setting explain what it does. Off by default; the Notes button of the header (or Ctrl+I) turns them on.
-- **update-grub**: after a change the program offers to run it so that it takes effect.
+- **Apply all**: nothing is written as soon as a setting is changed. The changes from every page wait in a bar at the bottom of the window, which lists them and lets each one be taken off. **Apply all** makes them together with a single password and a single `update-grub`, while a strip with a progress bar and a log that can be unfolded shows what is happening.
 - **No GRUB, no changes**: on a system that does not boot with GRUB it says so and touches nothing.
 
 ## Dependencies

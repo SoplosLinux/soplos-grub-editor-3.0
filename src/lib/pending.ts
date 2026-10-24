@@ -67,7 +67,7 @@ export type ApplyPhase = "idle" | "running" | "done" | "failed";
 
 export const applyState = writable<{ phase: ApplyPhase; output: string }>({ phase: "idle", output: "" });
 
-/** Makes every pending change in one go, then runs update-grub once. */
+/** Makes every pending change in one go, then runs update-grub once. The strip at the bottom of the window follows it. */
 export async function applyPending(): Promise<void> {
   const items = get(pending);
   if (items.length === 0 || get(applyState).phase !== "idle") return;
@@ -76,15 +76,16 @@ export async function applyPending(): Promise<void> {
   applyState.set({ phase: "running", output: "" });
   const result = await runOps(ops, (output) => applyState.update((state) => ({ ...state, output })));
   applyState.set({ phase: result.ok ? "done" : "failed", output: result.output });
-}
-
-/** Closes the output panel. After a success the list is empty and the pages read the disk again. */
-export function closeApply(): void {
-  const { phase } = get(applyState);
-  if (phase === "running") return;
-  applyState.set({ phase: "idle", output: "" });
-  if (phase === "done") {
+  // Once everything is made the list is empty and the pages read the disk
+  // again. After a failure the list stays, since part of it may be in place.
+  if (result.ok) {
     pending.set([]);
     notify("all");
   }
+}
+
+/** Hides the strip of the last job once it has finished. */
+export function closeApply(): void {
+  if (get(applyState).phase === "running") return;
+  applyState.set({ phase: "idle", output: "" });
 }

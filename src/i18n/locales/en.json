@@ -57,12 +57,43 @@
     "continueWithout": "Continue without a copy",
     "saveTitle": "Save a copy of the GRUB settings"
   },
-  "flow": {
-    "failed": "The change was not made. Nothing was left half written.",
-    "runUpdate": "Run update-grub now so the change takes effect?",
-    "runUpdateNow": "Run update-grub",
-    "updated": "GRUB was updated. The change will be there at the next boot.",
-    "updateFailed": "update-grub failed. The settings were saved, but the boot menu was not regenerated."
+  "pending": {
+    "count": "Pending changes: {count}",
+    "details": "Details",
+    "apply": "Apply all",
+    "discard": "Discard",
+    "remove": "Take off the list",
+    "stage": "Add to changes",
+    "removal": "To be removed",
+    "discardTitle": "Discard the changes?",
+    "discardBody": "The changes that have not been applied yet will be lost.",
+    "label": {
+      "general": "General settings",
+      "look": "Background and colors",
+      "useTheme": "Use the theme {name}",
+      "disableTheme": "Stop using the theme",
+      "removeTheme": "Remove the theme {name}",
+      "removeBackground": "Remove the background image",
+      "useFont": "Use the font {name}",
+      "removeFont": "Remove the font {name}",
+      "enableEntry": "Enable the entry {name}",
+      "disableEntry": "Disable the entry {name}",
+      "removeMemtest": "Delete {name} from /boot",
+      "removeEntry": "Remove the entry {name}",
+      "addEntry": "Add the entry {name}"
+    }
+  },
+  "job": {
+    "runningTitle": "Applying the changes",
+    "running": "Working on it. Do not close the program; this can take a minute.",
+    "doneTitle": "Changes applied",
+    "done": "Done. GRUB was updated and the changes will be there at the next boot.",
+    "failedTitle": "Something failed",
+    "failed": "A step failed and the rest were not made. Some changes may already be in place: review them before trying again, or discard the list.",
+    "waiting": "Waiting for the first output...",
+    "showLog": "Show log",
+    "hideLog": "Hide log",
+    "close": "Close"
   },
   "general": {
     "bootConfig": "Boot",
@@ -214,12 +245,12 @@
     "submenu": "Without submenus, every kernel is listed in the main menu instead of inside Advanced options.",
     "kernelParams": "Separated by spaces. Quiet and splash hide the boot messages. Change them with care: a wrong option can stop the system from starting.",
     "entriesIntro": "Each row is an entry of the boot menu. The switch turns an entry off or on without deleting it.",
-    "entriesToggle": "Only memtest and your own entries can be changed. Kernel entries follow what is installed. Changes reach the menu when update-grub runs.",
-    "themeChoice": "Install a theme from an archive, choose it and press Apply. Disable returns to plain colors.",
+    "entriesToggle": "Only memtest and your own entries can be changed. Kernel entries follow what is installed. Changes wait in the bar at the bottom until you apply them all.",
+    "themeChoice": "Install a theme from an archive, choose it and add it to the changes. Disable returns to plain colors. Nothing is written until you press Apply all.",
     "backgroundImage": "A PNG or JPEG image. It is shown behind the menu when no theme is applied.",
     "colors": "GRUB can only show sixteen colors, so the choice is limited to them.",
     "fontConvert": "GRUB cannot read normal fonts. This converts a TTF or OTF file and keeps it in /boot/grub/fonts.",
-    "fontApply": "Use this font sets it for the menu. Removing a font in use also clears the setting."
+    "fontApply": "Adding it to the changes sets this font for the menu once you apply them. Removing a font in use also clears the setting."
   },
   "notes": {
     "whatTitle": "What it does",

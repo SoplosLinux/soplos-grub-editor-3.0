@@ -4,7 +4,8 @@
   import { open } from "@tauri-apps/plugin-dialog";
   import { Check, FolderOpen, ImageOff, Palette, Type, Paintbrush, PackagePlus } from "lucide-svelte";
   import { api } from "../lib/api";
-  import { applyChange, readConfig, runOps, tagged, t, visibleOutput, type Config, type Op } from "../lib/grub";
+  import { readConfig, runOps, tagged, t, visibleOutput, type Config, type Op } from "../lib/grub";
+  import { queue, onReleased } from "../lib/pending";
   import { askConfirm, showError, showInfo } from "../lib/dialogs";
   import Card from "../components/Card.svelte";
   import Hint from "../components/Hint.svelte";
@@ -111,7 +112,12 @@
     themePreviews = found;
   }
 
-  onMount(load);
+  onMount(() => {
+    void load();
+    return onReleased((keys) => {
+      if (keys === "all" || keys.includes("look") || keys.includes("font")) void load();
+    });
+  });
 
   const themeFolder = (name: string) => `/boot/grub/themes/${name}/`;
   const activeTheme = (name: string) => (config.GRUB_THEME ?? "").includes(themeFolder(name));
@@ -167,11 +173,17 @@
       await showInfo(t("common.done"), t("appearance.installed", { name }));
     });
 
-  const applyTheme = () =>
-    run(async () => {
-      if (!selectedTheme) return;
-      if (!(await askConfirm(t("appearance.applyThemeTitle"), t("appearance.applyThemeBody", { name: selectedTheme }), t("common.apply")))) return;
-      const ops: Op[] = [
+  // What changes the menu (theme, look, font) is not made here: it goes on
+  // the list of pending changes, and the bar at the bottom applies them all.
+  // A theme and a custom look exclude each other, so they share one key and
+  // the later request replaces the earlier one; the font has its own.
+
+  const applyTheme = () => {
+    if (!selectedTheme) return;
+    queue({
+      key: "look",
+      label: t("pending.label.useTheme", { name: selectedTheme }),
+      ops: [
         {
           op: "save-config",
           settings: [
@@ -184,18 +196,11 @@
         },
         { op: "write-colors", normal: "", highlight: "" },
         { op: "set-theme-scripts", active: false },
-      ];
-      if (await applyChange(ops, t("appearance.themeApplied"))) {
-        background = "";
-        await load();
-      }
+      ],
     });
+  };
 
-  const disableTheme = () =>
-    run(async () => {
-      if (!(await askConfirm(t("appearance.disableThemeTitle"), t("appearance.disableThemeBody"), t("appearance.disable")))) return;
-      if (await applyChange(customLook("", "white/black", "black/white"), t("appearance.themeDisabled"))) await load();
-    });
+  const disableTheme = () => queue({ key: "look", label: t("pending.label.disableTheme"), ops: customLook("", "white/black", "black/white") });
 
   const removeTheme = () =>
     run(async () => {
@@ -205,15 +210,15 @@
       const ops: Op[] = [{ op: "remove-theme", name }];
       if (activeTheme(name)) {
         // The theme is in use: GRUB goes back to plain colors with it.
-        await applyChange([...ops, ...customLook("", "white/black", "black/white")], t("appearance.themeRemoved"));
-      } else {
-        const result = await runOps(ops);
-        if (!result.ok) {
-          await showError(t("common.error"), t("appearance.removeFailed"), visibleOutput(result.output));
-          return;
-        }
-        await showInfo(t("common.done"), t("appearance.themeRemoved"));
+        queue({ key: "look", label: t("pending.label.removeTheme", { name }), ops: [...ops, ...customLook("", "white/black", "black/white")] });
+        return;
       }
+      const result = await runOps(ops);
+      if (!result.ok) {
+        await showError(t("common.error"), t("appearance.removeFailed"), visibleOutput(result.output));
+        return;
+      }
+      await showInfo(t("common.done"), t("appearance.themeRemoved"));
       await load();
     });
 
@@ -227,13 +232,11 @@
     }
   };
 
-  async function applyLook(bg: string, askFirst: boolean) {
-    if (askFirst && !(await askConfirm(t("appearance.applyLookTitle"), t("appearance.applyLookBody"), t("common.apply")))) return;
-    const done = await applyChange(customLook(bg, `${textColor}/${backgroundColor}`, `${highlightText}/${highlightBackground}`), t("appearance.lookApplied"));
-    if (done) await load();
+  function applyLook(bg: string, label: string) {
+    queue({ key: "look", label, ops: customLook(bg, `${textColor}/${backgroundColor}`, `${highlightText}/${highlightBackground}`) });
   }
 
-  const applyBackground = () => run(() => applyLook(background.trim(), true));
+  const applyBackground = () => applyLook(background.trim(), t("pending.label.look"));
 
   const removeBackground = () =>
     run(async () => {
@@ -241,7 +244,7 @@
       background = "";
       backgroundPreview = null;
       // The colors stay; only the image goes.
-      await applyLook("", false);
+      applyLook("", t("pending.label.removeBackground"));
     });
 
   // ---- Fonts
@@ -269,12 +272,14 @@
       await showInfo(t("common.done"), t("appearance.converted", { name }));
     });
 
-  const applyFont = () =>
-    run(async () => {
-      if (!selectedFont) return;
-      const done = await applyChange([{ op: "save-config", settings: [{ key: "GRUB_FONT", value: `/boot/grub/fonts/${selectedFont}` }] }], t("appearance.fontApplied"));
-      if (done) await load();
+  const applyFont = () => {
+    if (!selectedFont) return;
+    queue({
+      key: "font",
+      label: t("pending.label.useFont", { name: selectedFont }),
+      ops: [{ op: "save-config", settings: [{ key: "GRUB_FONT", value: `/boot/grub/fonts/${selectedFont}` }] }],
     });
+  };
 
   const removeFont = () =>
     run(async () => {
@@ -284,15 +289,15 @@
       const ops: Op[] = [{ op: "remove-font", name }];
       if ((config.GRUB_FONT ?? "") === `/boot/grub/fonts/${name}`) {
         // The font in use goes, so the setting that names it goes too.
-        await applyChange([...ops, { op: "save-config", settings: [{ key: "GRUB_FONT", value: "" }] }], t("appearance.fontRemoved"));
-      } else {
-        const result = await runOps(ops);
-        if (!result.ok) {
-          await showError(t("common.error"), t("appearance.removeFailed"), visibleOutput(result.output));
-          return;
-        }
-        await showInfo(t("common.done"), t("appearance.fontRemoved"));
+        queue({ key: "font", label: t("pending.label.removeFont", { name }), ops: [...ops, { op: "save-config", settings: [{ key: "GRUB_FONT", value: "" }] }] });
+        return;
       }
+      const result = await runOps(ops);
+      if (!result.ok) {
+        await showError(t("common.error"), t("appearance.removeFailed"), visibleOutput(result.output));
+        return;
+      }
+      await showInfo(t("common.done"), t("appearance.fontRemoved"));
       await load();
     });
 
@@ -364,7 +369,7 @@
         </div>
         <Hint text={$_("hints.themeChoice")} />
         <div class="flex flex-wrap gap-2 mt-4">
-          <button class={primaryButton} disabled={busy || !selectedTheme} on:click={applyTheme}>{$_("common.apply")}</button>
+          <button class={primaryButton} disabled={busy || !selectedTheme} on:click={applyTheme}>{$_("pending.stage")}</button>
           <button class={secondary} disabled={busy} on:click={installTheme}>{$_("appearance.install")}</button>
           <button class={secondary} disabled={busy || !themeInUse} on:click={disableTheme}>{$_("appearance.disable")}</button>
           <button class="{dangerButton} ml-auto" disabled={busy || !selectedTheme} on:click={removeTheme}>{$_("common.remove")}</button>
@@ -415,7 +420,7 @@
         </div>
         <Hint text={$_("hints.colors")} />
         <div class="flex justify-end mt-5">
-          <button class={primaryButton} disabled={busy} on:click={applyBackground}>{$_("appearance.applyLook")}</button>
+          <button class={primaryButton} disabled={busy} on:click={applyBackground}>{$_("pending.stage")}</button>
         </div>
       </Card>
     </div>
@@ -456,7 +461,7 @@
         {/if}
         <Hint text={$_("hints.fontApply")} />
         <div class="flex gap-2 mt-4">
-          <button class={primaryButton} disabled={busy || !selectedFont} on:click={applyFont}>{$_("appearance.applyFont")}</button>
+          <button class={primaryButton} disabled={busy || !selectedFont} on:click={applyFont}>{$_("pending.stage")}</button>
           <button class="{dangerButton} ml-auto" disabled={busy || !selectedFont} on:click={removeFont}>{$_("appearance.removeFont")}</button>
         </div>
       </Card>

@@ -2,6 +2,24 @@
 
 All notable changes to Soplos GRUB Editor are documented in this file.
 
+## [3.0.0-beta] - 2026-10-24
+
+First beta, after the alpha was tested on real hardware.
+
+### Changed
+
+- Changes are no longer made one by one. Anything changed on any page waits in a bar at the bottom of the window, which lists the pending changes, lets each one be taken off and has Apply all and Discard. Apply all makes every change with a single password and runs `update-grub` once, instead of asking for the password and offering `update-grub` after each change. The offer to run `update-grub` after each change is gone.
+- The Apply button of the General page is gone: any difference from what is in `/etc/default/grub` becomes a pending change, and is dropped again when the fields are back as they were.
+- Switches, deletions and new entries on the Boot Entries page wait in the same list. The entries are shown as they will be once applied, and an entry that will be deleted is struck through.
+- On the Appearance page, the buttons that applied a theme, the background and colors, or a font now add it to the changes. A theme and a custom look share one place on the list, since they exclude each other. Installing a theme and converting a font still happen at once, without `update-grub`.
+- The three pages stay loaded when switching between them, so what was typed or chosen on one is still there when coming back.
+- Closing the window with pending changes asks first.
+- The hints of the Boot Entries and Appearance pages no longer say that changes are made as soon as they are asked for.
+
+### Added
+
+- A progress bar along the bottom edge of the window while the changes are applied, and a strip above it with the latest line of output and a log that can be unfolded, the same as in the Store. A failed run opens the log by itself.
+
 ## [3.0.0-alpha] - 2026-10-24
 
 Full rewrite of Soplos GRUB Editor, from Python 3 and GTK3 to Tauri 2 with a Rust backend and a Svelte frontend. See the Architecture section of the README.

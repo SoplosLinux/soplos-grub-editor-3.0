@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import { _ } from "svelte-i18n";
   import { Lock, Rocket, Cpu, SlidersHorizontal, Pin, PackagePlus, History } from "lucide-svelte";
   import Card from "../components/Card.svelte";
   import Hint from "../components/Hint.svelte";
   import Toggle from "../components/Toggle.svelte";
-  import { readConfig, applyChange, t, type Config, type Setting } from "../lib/grub";
+  import { readConfig, t, type Config, type Setting } from "../lib/grub";
+  import { queue, unqueue, isPending, onReleased } from "../lib/pending";
   import { entriesState, ensureEntries, loadEntriesAsAdmin } from "../lib/entries";
 
   // The general settings of /etc/default/grub. The boot entry is only written
-  // when the user chose one: opening this page and pressing Apply must never
+  // when the user chose one: opening this page and applying must never
   // pin the default entry to the current kernel, which would keep any later
   // kernel from being booted.
 
@@ -49,7 +50,6 @@
   let recovery = true;
   let useUuid = true;
   let disableSubmenu = false;
-  let applying = false;
 
   const truthy = (value: string | undefined) => ["true", "y", "yes", "1"].includes((value ?? "").toLowerCase());
 
@@ -103,9 +103,15 @@
     configLoaded = true;
     await ensureEntries();
     loadFields();
+    await rebaseline();
   }
 
-  onMount(reload);
+  onMount(() => {
+    void reload();
+    return onReleased((keys) => {
+      if (keys === "all" || keys.includes("general")) void reload();
+    });
+  });
 
   // The entries can arrive after the page opens (read as administrator); until
   // the user touches the selector, it follows them.
@@ -120,6 +126,7 @@
       selectedEntry = initial.selected;
       extraEntry = initial.extra;
       initialEntry = selectedEntry;
+      if (!isPending("general")) void rebaseline();
     }
   }
 
@@ -164,15 +171,23 @@
     return settings;
   }
 
-  async function apply() {
-    if (applying) return;
-    applying = true;
-    try {
-      const done = await applyChange([{ op: "save-config", settings: buildSettings() }], t("general.saved"));
-      if (done) await reload();
-    } finally {
-      applying = false;
-    }
+  // Nothing is written from this page. Any difference from what was read
+  // from the disk waits as one pending change (replaced as the fields change,
+  // dropped when they are back as they were), and the bar applies it.
+  const snapshot = () => JSON.stringify([bootMode, selectedEntry, timeout, resolution, cmdline, showMenu, detectOs, recovery, useUuid, disableSubmenu]);
+  let baseline = "";
+
+  async function rebaseline() {
+    await tick();
+    baseline = snapshot();
+  }
+
+  $: current = JSON.stringify([bootMode, selectedEntry, timeout, resolution, cmdline, showMenu, detectOs, recovery, useUuid, disableSubmenu]);
+  $: if (configLoaded && baseline) syncPending(current);
+
+  function syncPending(now: string) {
+    if (now === baseline) unqueue("general");
+    else queue({ key: "general", label: t("pending.label.general"), ops: [{ op: "save-config", settings: buildSettings() }] });
   }
 
   let readingAsAdmin = false;
@@ -292,11 +307,6 @@
     <Card title={$_("general.kernelParams")} subtitle={$_("general.kernelParamsSub")} icon={Cpu}>
       <input type="text" class="{field} w-full font-mono" placeholder={$_("general.kernelPlaceholder")} bind:value={cmdline} maxlength="1000" />
       <Hint text={$_("hints.kernelParams")} />
-      <div class="flex justify-end mt-5">
-        <button class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-hover text-text-bright text-[0.84rem] font-semibold shadow disabled:opacity-60" disabled={applying || !configLoaded} on:click={apply}>
-          {applying ? $_("general.applying") : $_("general.apply")}
-        </button>
-      </div>
     </Card>
   </div>
 </div>

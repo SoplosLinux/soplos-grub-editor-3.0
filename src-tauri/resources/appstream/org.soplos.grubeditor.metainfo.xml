@@ -166,6 +166,11 @@
   </developer>
 
   <releases>
+    <release version="3.0.0-beta" date="2026-10-24">
+      <description>
+        <p>Changes from every page now wait in a bar at the bottom and are applied together with a single password and a single update-grub, with a progress bar and a log of what is happening.</p>
+      </description>
+    </release>
     <release version="3.0.0-alpha" date="2026-10-24">
       <description>
         <p>Full rewrite of Soplos GRUB Editor, from Python 3 and GTK3 to Tauri 2 with a Rust backend and a Svelte frontend. The window no longer runs as root.</p>

@@ -11,9 +11,9 @@
   import DialogHost from "./components/DialogHost.svelte";
   import NotesPanel from "./components/NotesPanel.svelte";
   import PendingBar from "./components/PendingBar.svelte";
-  import JobOutput from "./components/JobOutput.svelte";
+  import JobBar from "./components/JobBar.svelte";
   import { showNotes } from "./lib/ui";
-  import { pending, discardAll } from "./lib/pending";
+  import { pending, discardAll, applyState } from "./lib/pending";
   import General from "./views/General.svelte";
   import Entries from "./views/Entries.svelte";
   import Appearance from "./views/Appearance.svelte";
@@ -172,6 +172,12 @@
       {/if}
     </div>
     <PendingBar />
+    <JobBar />
+    <div class="h-1.5 bg-surface-2 shrink-0 overflow-hidden">
+      {#if $applyState.phase === "running"}
+        <div class="h-full w-1/3 bg-primary progress-slide"></div>
+      {/if}
+    </div>
   </div>
 </div>
 
@@ -180,4 +186,3 @@
 {/if}
 
 <DialogHost />
-<JobOutput />

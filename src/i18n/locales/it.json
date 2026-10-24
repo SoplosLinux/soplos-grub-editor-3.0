@@ -57,12 +57,43 @@
     "continueWithout": "Continua senza copia",
     "saveTitle": "Salva una copia delle impostazioni di GRUB"
   },
-  "flow": {
-    "failed": "La modifica non è stata fatta. Non è rimasto nulla scritto a metà.",
-    "runUpdate": "Eseguire update-grub ora perché la modifica abbia effetto?",
-    "runUpdateNow": "Esegui update-grub",
-    "updated": "GRUB è stato aggiornato. La modifica ci sarà al prossimo avvio.",
-    "updateFailed": "update-grub non è riuscito. Le impostazioni sono state salvate, ma il menu di avvio non è stato rigenerato."
+  "pending": {
+    "count": "Modifiche in sospeso: {count}",
+    "details": "Dettagli",
+    "apply": "Applica tutto",
+    "discard": "Scarta",
+    "remove": "Togli dall'elenco",
+    "stage": "Aggiungi alle modifiche",
+    "removal": "Verrà rimossa",
+    "discardTitle": "Scartare le modifiche?",
+    "discardBody": "Le modifiche non ancora applicate andranno perse.",
+    "label": {
+      "general": "Impostazioni generali",
+      "look": "Sfondo e colori",
+      "useTheme": "Usa il tema {name}",
+      "disableTheme": "Smetti di usare il tema",
+      "removeTheme": "Rimuovi il tema {name}",
+      "removeBackground": "Rimuovi l'immagine di sfondo",
+      "useFont": "Usa il carattere {name}",
+      "removeFont": "Rimuovi il carattere {name}",
+      "enableEntry": "Attiva la voce {name}",
+      "disableEntry": "Disattiva la voce {name}",
+      "removeMemtest": "Elimina {name} da /boot",
+      "removeEntry": "Rimuovi la voce {name}",
+      "addEntry": "Aggiungi la voce {name}"
+    }
+  },
+  "job": {
+    "runningTitle": "Applicazione delle modifiche",
+    "running": "Operazione in corso. Non chiudere il programma; può richiedere un minuto.",
+    "doneTitle": "Modifiche applicate",
+    "done": "Fatto. GRUB è stato aggiornato e le modifiche ci saranno al prossimo avvio.",
+    "failedTitle": "Qualcosa è andato storto",
+    "failed": "Un passaggio non è riuscito e i successivi non sono stati eseguiti. Alcune modifiche potrebbero essere già attive: controllale prima di riprovare, oppure scarta l'elenco.",
+    "waiting": "In attesa del primo output...",
+    "showLog": "Mostra registro",
+    "hideLog": "Nascondi registro",
+    "close": "Chiudi"
   },
   "general": {
     "bootConfig": "Avvio",
@@ -214,12 +245,12 @@
     "submenu": "Senza sottomenu, ogni kernel compare nel menu principale invece che dentro Opzioni avanzate.",
     "kernelParams": "Separati da spazi. Quiet e splash nascondono i messaggi di avvio. Cambiali con cautela: un'opzione sbagliata può impedire l'avvio del sistema.",
     "entriesIntro": "Ogni riga è una voce del menu di avvio. L'interruttore disattiva o attiva una voce senza eliminarla.",
-    "entriesToggle": "Si possono cambiare solo memtest e le tue voci. Quelle dei kernel seguono ciò che è installato. Le modifiche arrivano al menu quando si esegue update-grub.",
-    "themeChoice": "Installa un tema da un archivio, scegli e premi Applica. Disattiva torna ai colori semplici.",
+    "entriesToggle": "Si possono cambiare solo memtest e le tue voci. Quelle dei kernel seguono ciò che è installato. Le modifiche restano nella barra in basso finché non le applichi tutte.",
+    "themeChoice": "Installa un tema da un archivio, scegli e aggiungilo alle modifiche. Disattiva torna ai colori semplici. Non viene scritto nulla finché non premi Applica tutto.",
     "backgroundImage": "Un'immagine PNG o JPEG. Si vede dietro il menu quando non è applicato un tema.",
     "colors": "GRUB può mostrare solo sedici colori, quindi la scelta è limitata a quelli.",
     "fontConvert": "GRUB non legge i font normali. Questo converte un file TTF o OTF e lo conserva in /boot/grub/fonts.",
-    "fontApply": "Usa questo font lo imposta per il menu. Rimuovere un font in uso cancella anche l'impostazione."
+    "fontApply": "Una volta aggiunto alle modifiche, questo font viene impostato per il menu quando le applichi. Rimuovere un font in uso cancella anche l'impostazione."
   },
   "notes": {
     "whatTitle": "Cosa fa",

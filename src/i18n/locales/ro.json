@@ -57,12 +57,43 @@
     "continueWithout": "Continuă fără copie",
     "saveTitle": "Salvează o copie a setărilor GRUB"
   },
-  "flow": {
-    "failed": "Modificarea nu s-a făcut. Nu a rămas nimic scris pe jumătate.",
-    "runUpdate": "Rulezi acum update-grub ca modificarea să aibă efect?",
-    "runUpdateNow": "Rulează update-grub",
-    "updated": "GRUB a fost actualizat. Modificarea va fi la următoarea pornire.",
-    "updateFailed": "update-grub a eșuat. Setările au fost salvate, dar meniul de boot nu a fost regenerat."
+  "pending": {
+    "count": "Modificări în așteptare: {count}",
+    "details": "Detalii",
+    "apply": "Aplică tot",
+    "discard": "Renunță",
+    "remove": "Scoate din listă",
+    "stage": "Adaugă la modificări",
+    "removal": "Va fi eliminată",
+    "discardTitle": "Renunți la modificări?",
+    "discardBody": "Modificările care nu au fost încă aplicate se vor pierde.",
+    "label": {
+      "general": "Setări generale",
+      "look": "Fundal și culori",
+      "useTheme": "Folosește tema {name}",
+      "disableTheme": "Nu mai folosi tema",
+      "removeTheme": "Elimină tema {name}",
+      "removeBackground": "Elimină imaginea de fundal",
+      "useFont": "Folosește fontul {name}",
+      "removeFont": "Elimină fontul {name}",
+      "enableEntry": "Activează intrarea {name}",
+      "disableEntry": "Dezactivează intrarea {name}",
+      "removeMemtest": "Șterge {name} din /boot",
+      "removeEntry": "Elimină intrarea {name}",
+      "addEntry": "Adaugă intrarea {name}"
+    }
+  },
+  "job": {
+    "runningTitle": "Se aplică modificările",
+    "running": "Se lucrează. Nu închide programul; poate dura un minut.",
+    "doneTitle": "Modificări aplicate",
+    "done": "Gata. GRUB a fost actualizat, iar modificările vor fi acolo la următoarea pornire.",
+    "failedTitle": "Ceva a eșuat",
+    "failed": "Un pas a eșuat și cei următori nu s-au făcut. Unele modificări pot fi deja aplicate: verifică-le înainte de a încerca din nou sau renunță la listă.",
+    "waiting": "Se așteaptă prima ieșire...",
+    "showLog": "Arată jurnalul",
+    "hideLog": "Ascunde jurnalul",
+    "close": "Închide"
   },
   "general": {
     "bootConfig": "Pornire",
@@ -214,12 +245,12 @@
     "submenu": "Fără submeniuri, fiecare kernel apare în meniul principal în loc să fie în Opțiuni avansate.",
     "kernelParams": "Separați prin spații. Quiet și splash ascund mesajele de pornire. Schimbă-i cu grijă: o opțiune greșită poate împiedica pornirea sistemului.",
     "entriesIntro": "Fiecare rând este o intrare a meniului de boot. Comutatorul dezactivează sau activează o intrare fără a o șterge.",
-    "entriesToggle": "Pot fi modificate doar memtest și intrările tale. Cele de kernel urmează ce este instalat. Modificările ajung în meniu când rulează update-grub.",
-    "themeChoice": "Instalează o temă dintr-o arhivă, alege-o și apasă Aplică. Dezactivează revine la culori simple.",
+    "entriesToggle": "Pot fi modificate doar memtest și intrările tale. Cele de kernel urmează ce este instalat. Modificările așteaptă în bara de jos până le aplici pe toate.",
+    "themeChoice": "Instalează o temă dintr-o arhivă, alege-o și adaug-o la modificări. Dezactivează revine la culori simple. Nu se scrie nimic până nu apeși Aplică tot.",
     "backgroundImage": "O imagine PNG sau JPEG. Se vede în spatele meniului când nu e aplicată o temă.",
     "colors": "GRUB poate afișa doar șaisprezece culori, deci alegerea se limitează la ele.",
     "fontConvert": "GRUB nu poate citi fonturi obișnuite. Aceasta convertește un fișier TTF sau OTF și îl păstrează în /boot/grub/fonts.",
-    "fontApply": "Folosește acest font îl setează pentru meniu. Eliminarea unui font folosit șterge și setarea."
+    "fontApply": "Adăugat la modificări, acest font este setat pentru meniu după ce le aplici. Eliminarea unui font folosit șterge și setarea."
   },
   "notes": {
     "whatTitle": "Ce face",

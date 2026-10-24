@@ -1,10 +1,11 @@
 <script lang="ts">
   import { _ } from "svelte-i18n";
   import { ChevronDown, ChevronUp, X } from "lucide-svelte";
-  import { pending, applyPending, discardAll, release } from "../lib/pending";
+  import { pending, applyState, applyPending, discardAll, release } from "../lib/pending";
 
   // The changes asked for so far, waiting to be made together.
   let open = false;
+  $: working = $applyState.phase === "running";
   $: if ($pending.length === 0) open = false;
 </script>
 
@@ -29,8 +30,8 @@
         {#if open}<ChevronDown size={13} />{:else}<ChevronUp size={13} />{/if}
       </button>
       <div class="ml-auto flex gap-2">
-        <button class="px-4 py-2 rounded-lg border border-border text-text hover:bg-surface-2 text-[0.82rem]" on:click={discardAll}>{$_("pending.discard")}</button>
-        <button class="px-5 py-2 rounded-lg bg-primary hover:bg-primary-hover text-text-bright text-[0.82rem] font-semibold shadow" on:click={applyPending}>{$_("pending.apply")}</button>
+        <button class="px-4 py-2 rounded-lg border border-border text-text hover:bg-surface-2 text-[0.82rem] disabled:opacity-50" disabled={working} on:click={discardAll}>{$_("pending.discard")}</button>
+        <button class="px-5 py-2 rounded-lg bg-primary hover:bg-primary-hover text-text-bright text-[0.82rem] font-semibold shadow disabled:opacity-50" disabled={working} on:click={applyPending}>{$_("pending.apply")}</button>
       </div>
     </div>
   </div>

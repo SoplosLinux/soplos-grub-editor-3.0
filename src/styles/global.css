@@ -104,23 +104,16 @@ input[type="number"]::-webkit-inner-spin-button {
   opacity: 0.6;
 }
 
-/* Progress bar with no known end: a bar slides along the track. */
+/* Indeterminate bar at the bottom of the window while a job runs. */
 @keyframes progress-slide {
-  from {
+  0% {
     transform: translateX(-100%);
   }
-  to {
-    transform: translateX(260%);
+  100% {
+    transform: translateX(300%);
   }
 }
 
-.progress-indeterminate {
-  animation: progress-slide 1.3s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .progress-indeterminate {
-    animation: none;
-    transform: translateX(75%);
-  }
+.progress-slide {
+  animation: progress-slide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }

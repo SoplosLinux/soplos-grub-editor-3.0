@@ -57,12 +57,43 @@
     "continueWithout": "Ohne Kopie fortfahren",
     "saveTitle": "Kopie der GRUB-Einstellungen speichern"
   },
-  "flow": {
-    "failed": "Die Änderung wurde nicht durchgeführt. Es blieb nichts halb geschrieben zurück.",
-    "runUpdate": "update-grub jetzt ausführen, damit die Änderung wirksam wird?",
-    "runUpdateNow": "update-grub ausführen",
-    "updated": "GRUB wurde aktualisiert. Die Änderung gilt ab dem nächsten Start.",
-    "updateFailed": "update-grub ist fehlgeschlagen. Die Einstellungen wurden gespeichert, aber das Bootmenü wurde nicht neu erzeugt."
+  "pending": {
+    "count": "Ausstehende Änderungen: {count}",
+    "details": "Details",
+    "apply": "Alle anwenden",
+    "discard": "Verwerfen",
+    "remove": "Von der Liste nehmen",
+    "stage": "Zu den Änderungen hinzufügen",
+    "removal": "Wird entfernt",
+    "discardTitle": "Änderungen verwerfen?",
+    "discardBody": "Änderungen, die noch nicht angewendet wurden, gehen verloren.",
+    "label": {
+      "general": "Allgemeine Einstellungen",
+      "look": "Hintergrund und Farben",
+      "useTheme": "Theme {name} verwenden",
+      "disableTheme": "Theme nicht mehr verwenden",
+      "removeTheme": "Theme {name} entfernen",
+      "removeBackground": "Hintergrundbild entfernen",
+      "useFont": "Schrift {name} verwenden",
+      "removeFont": "Schrift {name} entfernen",
+      "enableEntry": "Eintrag {name} aktivieren",
+      "disableEntry": "Eintrag {name} deaktivieren",
+      "removeMemtest": "{name} aus /boot löschen",
+      "removeEntry": "Eintrag {name} entfernen",
+      "addEntry": "Eintrag {name} hinzufügen"
+    }
+  },
+  "job": {
+    "runningTitle": "Änderungen werden angewendet",
+    "running": "Wird ausgeführt. Schließen Sie das Programm nicht; das kann eine Minute dauern.",
+    "doneTitle": "Änderungen angewendet",
+    "done": "Fertig. GRUB wurde aktualisiert, die Änderungen gelten ab dem nächsten Start.",
+    "failedTitle": "Etwas ist fehlgeschlagen",
+    "failed": "Ein Schritt ist fehlgeschlagen, die folgenden wurden nicht ausgeführt. Einige Änderungen sind möglicherweise schon übernommen: prüfen Sie sie, bevor Sie es erneut versuchen, oder verwerfen Sie die Liste.",
+    "waiting": "Warte auf die erste Ausgabe...",
+    "showLog": "Protokoll anzeigen",
+    "hideLog": "Protokoll ausblenden",
+    "close": "Schließen"
   },
   "general": {
     "bootConfig": "Start",
@@ -214,12 +245,12 @@
     "submenu": "Ohne Untermenüs steht jeder Kernel im Hauptmenü statt unter Erweiterte Optionen.",
     "kernelParams": "Durch Leerzeichen getrennt. Quiet und splash blenden die Startmeldungen aus. Mit Vorsicht ändern: Eine falsche Option kann den Systemstart verhindern.",
     "entriesIntro": "Jede Zeile ist ein Eintrag des Bootmenüs. Der Schalter deaktiviert oder aktiviert einen Eintrag, ohne ihn zu löschen.",
-    "entriesToggle": "Nur Memtest und Ihre eigenen Einträge lassen sich ändern. Kernel-Einträge folgen dem Installierten. Änderungen erreichen das Menü, wenn update-grub läuft.",
-    "themeChoice": "Installieren Sie ein Theme aus einem Archiv, wählen Sie es aus und klicken Sie auf Anwenden. Deaktivieren kehrt zu einfachen Farben zurück.",
+    "entriesToggle": "Nur Memtest und Ihre eigenen Einträge lassen sich ändern. Kernel-Einträge folgen dem Installierten. Änderungen warten in der Leiste unten, bis Sie alle anwenden.",
+    "themeChoice": "Installieren Sie ein Theme aus einem Archiv, wählen Sie es aus und fügen Sie es den Änderungen hinzu. Deaktivieren kehrt zu einfachen Farben zurück. Es wird nichts geschrieben, bis Sie auf Alle anwenden klicken.",
     "backgroundImage": "Ein PNG- oder JPEG-Bild. Es erscheint hinter dem Menü, wenn kein Theme angewendet ist.",
     "colors": "GRUB kann nur sechzehn Farben anzeigen, daher ist die Auswahl darauf beschränkt.",
     "fontConvert": "GRUB kann normale Schriften nicht lesen. Dies wandelt eine TTF- oder OTF-Datei um und legt sie in /boot/grub/fonts ab.",
-    "fontApply": "Diese Schrift verwenden setzt sie für das Menü. Das Entfernen einer verwendeten Schrift löscht auch die Einstellung."
+    "fontApply": "Zu den Änderungen hinzugefügt, wird diese Schrift für das Menü gesetzt, sobald Sie sie anwenden. Das Entfernen einer verwendeten Schrift löscht auch die Einstellung."
   },
   "notes": {
     "whatTitle": "Was es tut",

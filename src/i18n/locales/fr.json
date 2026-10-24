@@ -57,12 +57,43 @@
     "continueWithout": "Continuer sans copie",
     "saveTitle": "Enregistrer une copie des réglages de GRUB"
   },
-  "flow": {
-    "failed": "La modification n'a pas été faite. Rien n'est resté à moitié écrit.",
-    "runUpdate": "Exécuter update-grub maintenant pour que la modification prenne effet ?",
-    "runUpdateNow": "Exécuter update-grub",
-    "updated": "GRUB a été mis à jour. La modification sera là au prochain démarrage.",
-    "updateFailed": "update-grub a échoué. Les réglages ont été enregistrés, mais le menu de démarrage n'a pas été régénéré."
+  "pending": {
+    "count": "Modifications en attente : {count}",
+    "details": "Détails",
+    "apply": "Tout appliquer",
+    "discard": "Abandonner",
+    "remove": "Retirer de la liste",
+    "stage": "Ajouter aux modifications",
+    "removal": "À supprimer",
+    "discardTitle": "Abandonner les modifications ?",
+    "discardBody": "Les modifications qui n'ont pas encore été appliquées seront perdues.",
+    "label": {
+      "general": "Réglages généraux",
+      "look": "Fond et couleurs",
+      "useTheme": "Utiliser le thème {name}",
+      "disableTheme": "Ne plus utiliser le thème",
+      "removeTheme": "Supprimer le thème {name}",
+      "removeBackground": "Supprimer l'image de fond",
+      "useFont": "Utiliser la police {name}",
+      "removeFont": "Supprimer la police {name}",
+      "enableEntry": "Activer l'entrée {name}",
+      "disableEntry": "Désactiver l'entrée {name}",
+      "removeMemtest": "Supprimer {name} de /boot",
+      "removeEntry": "Supprimer l'entrée {name}",
+      "addEntry": "Ajouter l'entrée {name}"
+    }
+  },
+  "job": {
+    "runningTitle": "Application des modifications",
+    "running": "Travail en cours. Ne fermez pas le programme ; cela peut prendre une minute.",
+    "doneTitle": "Modifications appliquées",
+    "done": "Terminé. GRUB a été mis à jour et les modifications seront là au prochain démarrage.",
+    "failedTitle": "Une étape a échoué",
+    "failed": "Une étape a échoué et les suivantes n'ont pas été faites. Certaines modifications sont peut-être déjà en place : vérifiez-les avant de réessayer, ou abandonnez la liste.",
+    "waiting": "En attente de la première sortie...",
+    "showLog": "Afficher le journal",
+    "hideLog": "Masquer le journal",
+    "close": "Fermer"
   },
   "general": {
     "bootConfig": "Démarrage",
@@ -214,12 +245,12 @@
     "submenu": "Sans sous-menus, chaque noyau apparaît dans le menu principal au lieu d'être dans Options avancées.",
     "kernelParams": "Séparés par des espaces. Quiet et splash masquent les messages de démarrage. Modifiez-les avec prudence : une mauvaise option peut empêcher le système de démarrer.",
     "entriesIntro": "Chaque ligne est une entrée du menu de démarrage. L'interrupteur désactive ou active une entrée sans la supprimer.",
-    "entriesToggle": "Seules memtest et vos propres entrées sont modifiables. Les entrées de noyau suivent ce qui est installé. Les modifications arrivent dans le menu quand update-grub s'exécute.",
-    "themeChoice": "Installez un thème depuis une archive, choisissez-le et appuyez sur Appliquer. Désactiver revient aux couleurs simples.",
+    "entriesToggle": "Seules memtest et vos propres entrées sont modifiables. Les entrées de noyau suivent ce qui est installé. Les modifications attendent dans la barre du bas jusqu'à ce que vous les appliquiez toutes.",
+    "themeChoice": "Installez un thème depuis une archive, choisissez-le et ajoutez-le aux modifications. Désactiver revient aux couleurs simples. Rien n'est écrit avant que vous appuyiez sur Tout appliquer.",
     "backgroundImage": "Une image PNG ou JPEG. Elle apparaît derrière le menu quand aucun thème n'est appliqué.",
     "colors": "GRUB ne peut afficher que seize couleurs, le choix est donc limité à celles-ci.",
     "fontConvert": "GRUB ne sait pas lire les polices normales. Ceci convertit un fichier TTF ou OTF et le conserve dans /boot/grub/fonts.",
-    "fontApply": "Utiliser cette police la définit pour le menu. Supprimer une police utilisée efface aussi le réglage."
+    "fontApply": "Ajoutée aux modifications, cette police est définie pour le menu une fois qu'elles sont appliquées. Supprimer une police utilisée efface aussi le réglage."
   },
   "notes": {
     "whatTitle": "Ce que cela fait",

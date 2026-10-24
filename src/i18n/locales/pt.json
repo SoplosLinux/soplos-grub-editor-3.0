@@ -57,12 +57,43 @@
     "continueWithout": "Continuar sem cópia",
     "saveTitle": "Guardar uma cópia das definições do GRUB"
   },
-  "flow": {
-    "failed": "A alteração não foi feita. Não ficou nada escrito a meio.",
-    "runUpdate": "Executar o update-grub agora para que a alteração tenha efeito?",
-    "runUpdateNow": "Executar update-grub",
-    "updated": "O GRUB foi atualizado. A alteração estará lá no próximo arranque.",
-    "updateFailed": "O update-grub falhou. As definições foram guardadas, mas o menu de arranque não foi regenerado."
+  "pending": {
+    "count": "Alterações pendentes: {count}",
+    "details": "Detalhes",
+    "apply": "Aplicar tudo",
+    "discard": "Descartar",
+    "remove": "Retirar da lista",
+    "stage": "Adicionar às alterações",
+    "removal": "Será removida",
+    "discardTitle": "Descartar as alterações?",
+    "discardBody": "As alterações que ainda não foram aplicadas serão perdidas.",
+    "label": {
+      "general": "Definições gerais",
+      "look": "Fundo e cores",
+      "useTheme": "Usar o tema {name}",
+      "disableTheme": "Deixar de usar o tema",
+      "removeTheme": "Remover o tema {name}",
+      "removeBackground": "Remover a imagem de fundo",
+      "useFont": "Usar o tipo de letra {name}",
+      "removeFont": "Remover o tipo de letra {name}",
+      "enableEntry": "Ativar a entrada {name}",
+      "disableEntry": "Desativar a entrada {name}",
+      "removeMemtest": "Apagar {name} de /boot",
+      "removeEntry": "Remover a entrada {name}",
+      "addEntry": "Adicionar a entrada {name}"
+    }
+  },
+  "job": {
+    "runningTitle": "A aplicar as alterações",
+    "running": "A trabalhar. Não feches o programa; pode demorar um minuto.",
+    "doneTitle": "Alterações aplicadas",
+    "done": "Feito. O GRUB foi atualizado e as alterações estarão lá no próximo arranque.",
+    "failedTitle": "Algo falhou",
+    "failed": "Um passo falhou e os seguintes não foram feitos. Pode haver alterações já aplicadas: revê-las antes de tentares outra vez, ou descarta a lista.",
+    "waiting": "A aguardar a primeira saída...",
+    "showLog": "Ver registo",
+    "hideLog": "Ocultar registo",
+    "close": "Fechar"
   },
   "general": {
     "bootConfig": "Arranque",
@@ -214,12 +245,12 @@
     "submenu": "Sem submenus, cada kernel aparece no menu principal em vez de estar dentro de Opções avançadas.",
     "kernelParams": "Separados por espaços. Quiet e splash escondem as mensagens de arranque. Altera-os com cuidado: uma opção errada pode impedir o sistema de arrancar.",
     "entriesIntro": "Cada linha é uma entrada do menu de arranque. O interruptor desativa ou ativa uma entrada sem a apagar.",
-    "entriesToggle": "Só se podem alterar o memtest e as tuas entradas. As de kernel seguem o que está instalado. As alterações chegam ao menu quando o update-grub é executado.",
-    "themeChoice": "Instala um tema a partir de um arquivo, escolhe-o e carrega em Aplicar. Desativar volta às cores simples.",
+    "entriesToggle": "Só se podem alterar o memtest e as tuas entradas. As de kernel seguem o que está instalado. As alterações esperam na barra de baixo até as aplicares todas.",
+    "themeChoice": "Instala um tema a partir de um arquivo, escolhe-o e adiciona-o às alterações. Desativar volta às cores simples. Nada é escrito até carregares em Aplicar tudo.",
     "backgroundImage": "Uma imagem PNG ou JPEG. Vê-se atrás do menu quando não há um tema aplicado.",
     "colors": "O GRUB só consegue mostrar dezasseis cores, por isso a escolha limita-se a elas.",
     "fontConvert": "O GRUB não consegue ler tipos de letra normais. Isto converte um ficheiro TTF ou OTF e guarda-o em /boot/grub/fonts.",
-    "fontApply": "Usar este tipo de letra define-o para o menu. Remover um tipo de letra em uso também limpa a definição."
+    "fontApply": "Depois de adicionado às alterações, este tipo de letra fica definido para o menu quando as aplicares. Remover um tipo de letra em uso também limpa a definição."
   },
   "notes": {
     "whatTitle": "O que faz",
