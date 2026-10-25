@@ -2,6 +2,17 @@
 
 All notable changes to Soplos GRUB Editor are documented in this file.
 
+## [3.0.0-1-beta] - 2026-10-25
+
+### Added
+
+- On the Appearance page, the cards of the themes now show what the pending changes will do: a theme that will be used is marked "Will be used" with a stronger frame, the theme in use that will be turned off is marked "Will be turned off", and a theme that will be removed is marked "Will be removed", with a red frame and a faded picture. The marks go away when the change is taken off the list or discarded.
+
+### Fixed
+
+- Apply all did nothing when a change was prepared after a run that had finished, while the strip of that run was still on screen. A run that has finished no longer blocks the next one.
+- The buttons of the dialog that offers a copy of `/etc/default/grub` were split over two rows. Cancel is now on the left and the two ways to go on are together on the right, in one row.
+
 ## [3.0.0-beta] - 2026-10-24
 
 First beta, after the alpha was tested on real hardware.

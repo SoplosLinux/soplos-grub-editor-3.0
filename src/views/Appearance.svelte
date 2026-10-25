@@ -2,10 +2,10 @@
   import { onMount } from "svelte";
   import { _ } from "svelte-i18n";
   import { open } from "@tauri-apps/plugin-dialog";
-  import { Check, FolderOpen, ImageOff, Palette, Type, Paintbrush, PackagePlus } from "lucide-svelte";
+  import { Check, Clock, FolderOpen, ImageOff, Palette, Type, Paintbrush, PackagePlus } from "lucide-svelte";
   import { api } from "../lib/api";
   import { readConfig, runOps, tagged, t, visibleOutput, type Config, type Op } from "../lib/grub";
-  import { queue, onReleased } from "../lib/pending";
+  import { queue, onReleased, pending, type PendingItem } from "../lib/pending";
   import { askConfirm, showError, showInfo } from "../lib/dialogs";
   import Card from "../components/Card.svelte";
   import Hint from "../components/Hint.svelte";
@@ -122,6 +122,33 @@
   const themeFolder = (name: string) => `/boot/grub/themes/${name}/`;
   const activeTheme = (name: string) => (config.GRUB_THEME ?? "").includes(themeFolder(name));
   $: themeInUse = themes.find((name) => activeTheme(name)) ?? "";
+
+  // What the list of pending changes will do to the themes once it is applied,
+  // so the cards can say it: which theme will be used, which will be removed,
+  // and whether the one in use will be turned off (a theme, a custom look and a
+  // removal all share the key "look").
+  function pendingThemeChange(items: PendingItem[]): { use: string; remove: string; disable: boolean } {
+    const look = items.find((item) => item.key === "look");
+    const change = { use: "", remove: "", disable: false };
+    if (!look) return change;
+    for (const op of look.ops) {
+      if (op.op === "save-config") {
+        const setting = op.settings.find((s) => s.key === "GRUB_THEME");
+        if (setting && setting.value) change.use = setting.value.split("/").slice(-2, -1)[0] ?? "";
+        else if (setting) change.disable = true;
+      } else if (op.op === "remove-theme") {
+        change.remove = op.name;
+      }
+    }
+    return change;
+  }
+  $: themeChange = pendingThemeChange($pending);
+  $: pendingLabel = (name: string): string => {
+    if (themeChange.remove === name) return $_("appearance.pendingRemove");
+    if (themeChange.use === name) return $_("appearance.pendingUse");
+    if (themeChange.disable && themeInUse === name) return $_("appearance.pendingDisable");
+    return "";
+  };
 
   // The settings that leave GRUB with the given custom background and colors
   // and no theme. Empty colors clear custom.cfg.
@@ -347,15 +374,22 @@
       {:else}
         <div class="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(190px,1fr))]">
           {#each themes as name (name)}
+            {@const change = pendingLabel(name)}
+            {@const removing = themeChange.remove === name}
             <button
-              class="group text-left rounded-xl border overflow-hidden transition-all {selectedTheme === name ? 'border-primary ring-2 ring-primary/50 shadow-lg' : 'border-border hover:border-primary/60'} bg-panel"
+              class="group text-left rounded-xl border overflow-hidden transition-all {removing ? 'border-danger ring-2 ring-danger/40' : change ? 'border-primary ring-2 ring-primary shadow-lg' : selectedTheme === name ? 'border-primary ring-2 ring-primary/50 shadow-lg' : 'border-border hover:border-primary/60'} bg-panel"
               on:click={() => (selectedTheme = name)}
             >
-              <div class="aspect-[16/10] bg-black/40 grid place-items-center overflow-hidden">
+              <div class="relative aspect-[16/10] bg-black/40 grid place-items-center overflow-hidden">
                 {#if themePreviews[name]}
-                  <img src={themePreviews[name]} alt={name} class="w-full h-full object-cover" />
+                  <img src={themePreviews[name]} alt={name} class="w-full h-full object-cover {removing ? 'opacity-50' : ''}" />
                 {:else}
                   <ImageOff size={26} class="text-text-muted" />
+                {/if}
+                {#if change}
+                  <span class="absolute left-2 top-2 flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.65rem] font-semibold shadow {removing ? 'bg-danger text-white' : 'bg-primary text-text-bright'}">
+                    <Clock size={10} />{change}
+                  </span>
                 {/if}
               </div>
               <div class="flex items-center justify-between gap-2 px-3 py-2">

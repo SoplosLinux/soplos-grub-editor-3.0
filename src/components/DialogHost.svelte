@@ -23,19 +23,21 @@
 
 {#if current}
   {#if current.kind === "backup"}
-    <Modal variant="confirm" title={current.title} showFooter={false} maxWidth={480} onClose={() => current?.resolve(false)}>
+    <Modal variant="confirm" title={current.title} showFooter={false} maxWidth={600} onClose={() => current?.resolve(false)}>
       <p>{current.body}</p>
       {#if backupError}
         <p class="mt-2 text-danger text-[0.78rem] break-all">{backupError}</p>
       {/if}
-      <div class="mt-4 flex flex-wrap justify-end gap-2">
-        <button class="px-4 py-2 rounded border border-border text-text hover:bg-surface-2 text-[0.82rem]" on:click={() => current?.resolve(false)}>
+      <!-- Cancel on the left, away from the two ways to go on, which sit
+           together on the right with the one that saves last. -->
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <button class="mr-auto whitespace-nowrap px-4 py-2 rounded border border-border text-text hover:bg-surface-2 text-[0.82rem]" on:click={() => current?.resolve(false)}>
           {$_("common.cancel")}
         </button>
-        <button class="px-4 py-2 rounded border border-border text-text hover:bg-surface-2 text-[0.82rem]" on:click={() => current?.resolve(true)}>
+        <button class="whitespace-nowrap px-4 py-2 rounded border border-border text-text hover:bg-surface-2 text-[0.82rem]" on:click={() => current?.resolve(true)}>
           {$_("backup.continueWithout")}
         </button>
-        <button class="px-4 py-2 rounded bg-primary hover:bg-primary-hover text-text-bright text-[0.82rem] font-semibold disabled:opacity-60" disabled={saving} on:click={saveBackup}>
+        <button class="whitespace-nowrap px-4 py-2 rounded bg-primary hover:bg-primary-hover text-text-bright text-[0.82rem] font-semibold disabled:opacity-60" disabled={saving} on:click={saveBackup}>
           {saving ? $_("backup.saving") : $_("backup.save")}
         </button>
       </div>

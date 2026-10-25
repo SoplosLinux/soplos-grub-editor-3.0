@@ -155,6 +155,9 @@
   },
   "appearance": {
     "inUse": "In Verwendung",
+    "pendingUse": "Wird verwendet",
+    "pendingDisable": "Wird deaktiviert",
+    "pendingRemove": "Wird entfernt",
     "sampleTitle": "So sieht das Menü aus",
     "sampleAdvanced": "Erweiterte Optionen",
     "sampleMemtest": "Speichertest",

@@ -155,6 +155,9 @@
   },
   "appearance": {
     "inUse": "Используется",
+    "pendingUse": "Будет использована",
+    "pendingDisable": "Будет отключена",
+    "pendingRemove": "Будет удалена",
     "sampleTitle": "Так будет выглядеть меню",
     "sampleAdvanced": "Дополнительные параметры",
     "sampleMemtest": "Проверка памяти",

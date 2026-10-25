@@ -166,6 +166,11 @@
   </developer>
 
   <releases>
+    <release version="3.0.0-1-beta" date="2026-10-25">
+      <description>
+        <p>The theme cards now show which theme will be used, turned off or removed once the pending changes are applied. Fixed Apply all doing nothing after a finished run, and the layout of the buttons of the backup dialog.</p>
+      </description>
+    </release>
     <release version="3.0.0-beta" date="2026-10-24">
       <description>
         <p>Changes from every page now wait in a bar at the bottom and are applied together with a single password and a single update-grub, with a progress bar and a log of what is happening.</p>

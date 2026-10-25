@@ -70,7 +70,9 @@ export const applyState = writable<{ phase: ApplyPhase; output: string }>({ phas
 /** Makes every pending change in one go, then runs update-grub once. The strip at the bottom of the window follows it. */
 export async function applyPending(): Promise<void> {
   const items = get(pending);
-  if (items.length === 0 || get(applyState).phase !== "idle") return;
+  // A finished run (done or failed) does not block a new one: its strip stays
+  // on screen until it is closed, and the next apply replaces it.
+  if (items.length === 0 || get(applyState).phase === "running") return;
   if (!(await askBackup())) return;
   const ops: Op[] = [...items.flatMap((item) => item.ops), { op: "update-grub" }];
   applyState.set({ phase: "running", output: "" });

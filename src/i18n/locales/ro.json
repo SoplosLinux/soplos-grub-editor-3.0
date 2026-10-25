@@ -155,6 +155,9 @@
   },
   "appearance": {
     "inUse": "În uz",
+    "pendingUse": "Va fi folosită",
+    "pendingDisable": "Va fi dezactivată",
+    "pendingRemove": "Va fi eliminată",
     "sampleTitle": "Așa va arăta meniul",
     "sampleAdvanced": "Opțiuni avansate",
     "sampleMemtest": "Test de memorie",
