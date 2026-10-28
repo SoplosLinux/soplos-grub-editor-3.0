@@ -166,6 +166,11 @@
   </developer>
 
   <releases>
+    <release version="3.0.0-2-beta" date="2026-10-28">
+      <description>
+        <p>New application icon, new hero image and new screenshots, taken with the interface in English.</p>
+      </description>
+    </release>
     <release version="3.0.0-1-beta" date="2026-10-25">
       <description>
         <p>The theme cards now show which theme will be used, turned off or removed once the pending changes are applied. Fixed Apply all doing nothing after a finished run, and the layout of the buttons of the backup dialog.</p>

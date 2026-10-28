@@ -2,6 +2,14 @@
 
 All notable changes to Soplos GRUB Editor are documented in this file.
 
+## [3.0.0-2-beta] - 2026-10-28
+
+### Changed
+
+- New application icon, in the sizes of the package, the window and the interface.
+- New hero image, with the circuit style of the other Soplos 3.0 programs.
+- New screenshots of every page, taken with the interface in English.
+
 ## [3.0.0-1-beta] - 2026-10-25
 
 ### Added
