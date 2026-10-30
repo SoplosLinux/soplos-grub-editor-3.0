@@ -1,5 +1,11 @@
 {
   "app": {
+    "window": {
+      "minimize": "Riduci a icona",
+      "maximize": "Ingrandisci",
+      "restore": "Ripristina",
+      "close": "Chiudi"
+    },
     "title": "Editor GRUB di Soplos",
     "tabs": {
       "general": {
