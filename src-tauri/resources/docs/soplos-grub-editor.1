@@ -1,0 +1,120 @@
+.TH "SOPLOS-GRUB-EDITOR" "1" "2026-10-24" "Soplos Linux" "User Commands"
+.SH NAME
+soplos-grub-editor \- graphical editor for the GRUB boot loader of Soplos Linux
+.SH SYNOPSIS
+.B soplos-grub-editor
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B soplos-grub-editor
+configures the GRUB2 boot loader of Soplos Linux from a graphical interface.
+Built with Tauri 2, Rust, and Svelte, it has three views:
+.IP \[bu] 2
+.B General:
+the default boot entry (a fixed entry, the last installed kernel or the last
+booted one), the timeout, the screen resolution, the detection of other
+operating systems, the recovery entries, the use of UUIDs, the submenus and the
+kernel parameters. These are the settings of
+.IR /etc/default/grub .
+.IP \[bu]
+.B Boot Entries:
+the entries of the boot menu. The memtest entries and the entries written to
+.I /etc/grub.d/40_custom
+can be switched off and on, and deleted; new custom entries are added from the
+same view. Kernel and operating system entries are generated from what is
+installed and cannot be changed one by one.
+.IP \[bu]
+.B Appearance:
+installing, applying, disabling and removing GRUB themes, a custom background
+image with its colors, and the conversion of TrueType or OpenType fonts to
+GRUB's PF2 format.
+.P
+The window never runs as root. Every change to the boot files goes through a
+single Polkit-gated helper, authenticated with
+.BR pkexec (1),
+which accepts only a closed list of operations and checks every value before it
+writes: a value that could run a command when the file is read by
+.BR grub-mkconfig (8)
+is refused. Files are replaced whole, never half written, and
+.I /etc/default/grub
+is checked to be valid shell first. Custom entries are checked with
+.BR grub-script-check (1).
+.P
+Before the first change of a session the program offers to save a copy of
+.I /etc/default/grub
+where the user chooses. It leaves no backup files of its own.
+.P
+After a change it offers to run
+.BR update-grub (8)
+so that it takes effect. On a system that does not boot with GRUB it says so
+and changes nothing.
+.P
+The interface is available in English, Spanish, German, French, Italian,
+Portuguese, Romanian and Russian. It starts in the system language and falls
+back to English.
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show summary of options.
+.TP
+.B \-\-run-ops \fIFILE\fR
+Internal Polkit-authenticated task: validate and run the operations stored in
+.IR FILE .
+Used by the application itself through
+.BR pkexec (1)
+and not meant to be called by hand.
+.SH KEYBOARD SHORTCUTS
+.TP
+.B F1
+About dialog.
+.TP
+.B Ctrl+I
+Show or hide the notes.
+.TP
+.B Ctrl+Q
+Quit the application.
+.TP
+.B Ctrl+Tab
+Next section.
+.TP
+.B Ctrl+Shift+Tab
+Previous section.
+.SH FILES
+.TP
+.I /etc/default/grub
+The GRUB settings.
+.TP
+.I /boot/grub/grub.cfg
+The generated boot menu, read to list the entries.
+.TP
+.I /etc/grub.d/40_custom
+Custom boot entries written by the program.
+.TP
+.I /etc/grub.d/20_memtest86+
+Memtest entries, which can be switched off and on.
+.TP
+.I /boot/grub/themes/
+Installed GRUB themes.
+.TP
+.I /boot/grub/fonts/
+Installed GRUB fonts.
+.TP
+.I /boot/grub/custom.cfg
+Colors of the custom appearance.
+.TP
+.I /usr/share/polkit-1/actions/org.soplos.grubeditor.policy
+Polkit policy defining the administrator privileges for changes to the boot files.
+.SH AUTHOR
+Written by Sergi Perich <info@soploslinux.com> for the Soplos Linux project.
+.SH COPYRIGHT
+Copyright \(co 2026 Sergi Perich <info@soploslinux.com>.
+.br
+License: GPL-3.0-or-later <https://www.gnu.org/licenses/gpl-3.0.html>.
+.br
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+.SH SEE ALSO
+.BR update-grub (8),
+.BR grub-mkconfig (8),
+.BR grub-mkfont (1),
+.BR grub-script-check (1),
+.BR soplos-welcome (1)
