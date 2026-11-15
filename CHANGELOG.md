@@ -2,6 +2,12 @@
 
 All notable changes to Soplos GRUB Editor are documented in this file.
 
+## [3.0.0-5-beta] - 2026-11-15
+
+### Fixed
+
+- General: "Detect other operating systems" was shown on when `GRUB_DISABLE_OS_PROBER` was not in `/etc/default/grub`, but GRUB 2.06 and later leave os-prober off in that case, as on a fresh install. Saving with it on did not write the setting either, so os-prober stayed off until it was turned off and on again. A missing setting now reads as off, and turning it on writes `GRUB_DISABLE_OS_PROBER=false` the first time.
+
 ## [3.0.0-4-beta] - 2026-11-04
 
 ### Fixed

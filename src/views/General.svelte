@@ -87,7 +87,8 @@
     cmdline = config.GRUB_CMDLINE_LINUX_DEFAULT ?? "";
     showMenu = (config.GRUB_TIMEOUT_STYLE ?? "menu") !== "hidden";
     recovery = (config.GRUB_DISABLE_RECOVERY ?? "false").toLowerCase() !== "true";
-    detectOs = (config.GRUB_DISABLE_OS_PROBER ?? "false").toLowerCase() !== "true";
+    // GRUB 2.06 and later leave os-prober off when the key is missing.
+    detectOs = (config.GRUB_DISABLE_OS_PROBER ?? "true").toLowerCase() !== "true";
     useUuid = (config.GRUB_DISABLE_LINUX_UUID ?? "false").toLowerCase() !== "true";
     disableSubmenu = ["true", "y"].includes((config.GRUB_DISABLE_SUBMENU ?? "false").toLowerCase());
     entryTouched = false;
@@ -165,7 +166,7 @@
     };
     optional("GRUB_TIMEOUT_STYLE", showMenu ? "menu" : "hidden", "menu");
     optional("GRUB_DISABLE_RECOVERY", recovery ? "false" : "true", "false");
-    optional("GRUB_DISABLE_OS_PROBER", detectOs ? "false" : "true", "false");
+    optional("GRUB_DISABLE_OS_PROBER", detectOs ? "false" : "true", "true");
     optional("GRUB_DISABLE_LINUX_UUID", useUuid ? "false" : "true", "false");
     optional("GRUB_DISABLE_SUBMENU", disableSubmenu ? "y" : "false", "false");
     return settings;
