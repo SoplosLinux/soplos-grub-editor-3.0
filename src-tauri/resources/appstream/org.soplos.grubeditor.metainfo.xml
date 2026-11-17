@@ -166,6 +166,11 @@
   </developer>
 
   <releases>
+    <release version="3.0.0" date="2026-11-17">
+      <description>
+        <p>First stable release.</p>
+      </description>
+    </release>
     <release version="3.0.0-5-beta" date="2026-11-15">
       <description>
         <p>Detecting other operating systems shows its real state when the setting is not in the GRUB configuration, and turning it on takes effect the first time.</p>
